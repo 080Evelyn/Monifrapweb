@@ -3,15 +3,15 @@ import React from "react";
 
 const HowItWorks = () => {
   return (
-    <section className="flex flex-col gap-3 w-full px-15 md:px-22 lg:px-35">
+    <section className="flex flex-col gap-3 w-full px-15 md:px-22 lg:px-35 mt-5">
       <div className="w-full flex flex-col items-center gap-2 text-center">
         <span className="text-[10px] text-center font-medium text-primary border border-primary rounded-full px-2 py-1">
           How it works
         </span>
 
-        <h1 className="text-3xl md:text-[40px] text-center font-medium">
+        <span className="text-3xl md:text-[40px] text-center font-medium">
           Seamless Banking in <span className="text-primary">3 Steps</span>
-        </h1>
+        </span>
         <p className="text-muted-foreground text-center text-[11px]">
           No more switching between apps. Monifrap makes transactions smooth
           from start to finish.
@@ -56,10 +56,10 @@ const HowItWorks = () => {
           </div>
 
           <div className="flex flex-col gap-1 px-1">
-            <span className="font-medium">Create an Account</span>
+            <span className="font-medium">Link Your Bank Account</span>
             <p className="text-xs text-muted-foreground font-light">
-              Start by providing basic information such as full name, phone
-              number, and email.
+              Get started by entering your Choose your bank, enter your account
+              number.
             </p>
           </div>
         </div>
@@ -79,10 +79,10 @@ const HowItWorks = () => {
           </div>
 
           <div className="flex flex-col gap-1 px-1">
-            <span className="font-medium">Create an Account</span>
+            <span className="font-medium">Start Seamless Transactions</span>
             <p className="text-xs text-muted-foreground font-light">
-              Start by providing basic information such as full name, phone
-              number, and email.
+              verify with a secure OTP, and you&apos;re all set to start
+              transacting.
             </p>
           </div>
         </div>

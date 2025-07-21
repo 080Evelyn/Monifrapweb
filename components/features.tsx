@@ -4,14 +4,14 @@ const Features = () => {
   return (
     <section
       id="features"
-      className="md:mx-10 lg:mx-25 rounded-lg p-5 mt-10 text-center"
+      className="md:mx-10 lg:mx-25 rounded-lg p-5 pt-20 text-center"
     >
       <div className="text-[10px] inline-block font-medium text-primary border border-primary rounded-full px-2 py-1">
         Features
       </div>
-      <h1 className="text-3xl md:text-[40px] font-medium">
+      <span className="text-3xl md:text-[40px] font-medium">
         Explore the Features That Make Monifrap the Smartest Way to Bank
-      </h1>
+      </span>
 
       <div className="grid gap-6 mt-4">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">

@@ -48,9 +48,9 @@ const Testimonials = () => {
           <div className="text-[10px] inline-block font-medium text-primary border border-primary rounded-full px-2 py-1">
             Testimonials
           </div>
-          <h1 className="text-3xl w-full md:w-3/5 md:text-[40px] font-medium">
+          <span className="text-3xl w-full md:w-3/5 md:text-[40px] font-medium">
             What our happy Users say
-          </h1>
+          </span>
           <p className="text-muted-foreground text-sm">
             Hear from real users who trust Monifrap every day. From secure
             payments to simple banking, their experiences say it all.

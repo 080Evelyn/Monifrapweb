@@ -50,9 +50,9 @@ const Faq = () => {
         <span className="py-1 px-2 border border-white/60 text-xs text-white/60 rounded-full">
           FAQs
         </span>
-        <h1 className="text-3xl w-2/5 md:text-[40px] text-white font-medium">
+        <span className="text-3xl w-2/5 md:text-[40px] text-white font-medium">
           Frequently asked <span className="text-white/70">questions</span>
-        </h1>
+        </span>
         <div className="rounded-md text-white w-full bg-background/6 p-5 shadow-lg backdrop-blur-xs">
           <Accordion
             type="single"

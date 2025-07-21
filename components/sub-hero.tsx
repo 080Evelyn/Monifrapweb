@@ -81,13 +81,13 @@ export default function Hero() {
           <span className="text-[10px] font-medium text-primary border border-primary rounded-full px-2 py-1">
             Peak financial service
           </span>
-          <h1
+          <span
             className="mt-4 text-3xl md:text-5xl font-medium leading-tight max-w-3xl"
             style={{ fontFamily: "'Whyte Inktrap', serif" }}
           >
             Simplify Your Money. Your Money, Your Freedom.{" "}
             <span className="text-primary">One Smart Wallet.</span>
-          </h1>
+          </span>
           <p className="mt-2 text-[13px] 2xl:text-sm max-w-2xl">
             Simplify how you save, spend, and plan – all from one intelligent
             platform built for everyday people.
