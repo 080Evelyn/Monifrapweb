@@ -41,7 +41,7 @@ const Hero = () => {
           </p>
         </div>
 
-        <div className="mt-8 flex w-full max-w-xs md:max-w-md gap-4 z-30">
+        <div className="mt-8 flex flex-wrap w-full max-w-xs md:max-w-md gap-4 z-30">
           {[
             {
               src: "/icons/apple.svg",
