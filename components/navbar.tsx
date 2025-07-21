@@ -12,7 +12,6 @@ import {
 import { Menu } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
   { label: "Home", path: "#home" },
