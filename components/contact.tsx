@@ -7,9 +7,9 @@ const Contact = () => {
         <span className="px-2 py-1 text-xs border rounded-full border-primary text-primary">
           Contact us
         </span>
-        <h1 className="text-3xl text-center font-medium md:text-7xl text-foreground">
+        <span className="text-3xl text-center font-medium md:text-7xl text-foreground">
           Have Questions about <span className="text-primary">Monifrap</span>?
-        </h1>
+        </span>
         <p className="tracking-[-2%] text-[10px] lg:text-lg px-15 text-center text-muted-foreground">
           Enter any enquires or issues you have and we will respond swiftly.{" "}
         </p>

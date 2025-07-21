@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen bg-background relative overflow-x-hidden pt-1"
+      className="h-screen bg-background relative overflow-x-hidden pt-1"
     >
       <div className="absolute inset-0 lg:mt-1">
         <div className="absolute md:rounded-l-[27px] left-0 bottom-0 w-full md:w-1/2 h-full custom-left-gradient" />
@@ -23,25 +23,25 @@ const Hero = () => {
 
       <Navbar />
 
-      <div className="flex flex-col items-center mt-4">
-        <div className="text-center w-4/5 md:max-w-2/3">
+      <div className="flex flex-col max-md:gap-4 items-center mt-20 md:mt-4">
+        <div className="flex flex-col items-center max-md:gap-2 text-center w-4/5 md:max-w-2/3">
           <span className="text-[10px] font-medium text-primary border border-primary rounded-full px-2 py-1">
             Peak financial service
           </span>
-          <h1
+          <span
             className="text-3xl mt-2 w-full md:text-[40px] font-medium"
             style={{ fontFamily: "'Whyte Inktrap', serif" }}
           >
             Simplify Your Money. Your Money, Your Freedom.
             <span className="text-primary">One Smart Wallet.</span>
-          </h1>
+          </span>
           <p className="text-sm mt-2">
             Simplify how you save, spend, and plan – all from one intelligent
             platform built for everyday people.
           </p>
         </div>
 
-        <div className="mt-8 flex w-full max-w-md gap-4 z-30">
+        <div className="mt-8 flex w-full max-w-xs md:max-w-md gap-4 z-30">
           {[
             {
               src: "/icons/apple.svg",

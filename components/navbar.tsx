@@ -1,3 +1,5 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import {
@@ -8,22 +10,55 @@ import {
   SheetTrigger,
 } from "./ui/sheet";
 import { Menu } from "lucide-react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
-const NAV_LINKS = ["Home", "About", "Contact"];
+const NAV_LINKS = [
+  { label: "Home", path: "#home" },
+  { label: "About", path: "#features" },
+  { label: "Contact", path: "#contact" },
+];
 
 const Navbar = () => {
-  const underlineClass =
-    "absolute left-0 bottom-[-2px] w-1/2 h-[3px] rounded-lg bg-primary transition-all duration-300";
-  const hoverEffect = "opacity-0 group-hover:opacity-100";
+  const [open, setOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [hash, setHash] = useState("");
 
-  const NavLinks = ({ hover = true }: { hover?: boolean }) => (
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const NavLinks = () => (
     <>
-      {NAV_LINKS.map((link, i) => (
-        <div key={link} className="relative group cursor-pointer">
-          {link}
-          <span className={cn(underlineClass, i === 0 ? "" : hoverEffect)} />
-        </div>
-      ))}
+      {NAV_LINKS.map((link) => {
+        const isActive = (hash || "#home") === link.path;
+
+        return (
+          <div key={link.label} className="relative group cursor-pointer">
+            <Link
+              href={link.path}
+              onClick={() => {
+                setOpen(false);
+                setHash(link.path);
+              }}
+            >
+              {link.label}
+              <span
+                className={cn(
+                  "absolute left-0 bottom-[-2px] h-[3px] rounded-lg bg-primary transition-all duration-300 md:block",
+                  isActive ? "w-1/2 opacity-100" : "w-0 group-hover:w-1/2"
+                )}
+              />
+            </Link>
+          </div>
+        );
+      })}
     </>
   );
 
@@ -45,7 +80,14 @@ const Navbar = () => {
   return (
     <>
       {/* Desktop */}
-      <div className="hidden lg:flex justify-between items-center w-full relative z-10 p-6">
+      <div
+        className={cn(
+          "hidden lg:flex justify-between items-center w-full z-50 p-6 transition-colors duration-300",
+          isScrolled
+            ? "fixed w-full -mx-4 top-0 bg-background border-b-1 shadow-sm px-6 py-2"
+            : "relative"
+        )}
+      >
         <Image src="/logo.svg" alt="logo" width={100} height={100} />
 
         <div className="flex gap-4 text-xs font-medium">
@@ -56,7 +98,14 @@ const Navbar = () => {
       </div>
 
       {/* Mobile */}
-      <div className="flex lg:hidden justify-between items-center w-full sticky top-0 z-10 p-6">
+      <div
+        className={cn(
+          "flex lg:hidden justify-between items-center w-full z-50 p-6 transition-colors duration-300",
+          isScrolled
+            ? "fixed top-0 bg-background border-b-1 shadow-sm py-2.5 px-4"
+            : "sticky top-0"
+        )}
+      >
         <Image
           src="/logo.svg"
           alt="logo"
@@ -64,18 +113,18 @@ const Navbar = () => {
           height={100}
           className="w-30 cursor-pointer"
         />
-        <Sheet>
+        <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger>
-            <Menu />
+            <Menu className="size-8" />
           </SheetTrigger>
-          <SheetContent className="w-1/2 h-1/3 rounded-lg mt-4 mr-4">
+          <SheetContent className="w-1/2 h-1/4 rounded-lg mt-4 mr-4">
             <SheetHeader>
               <SheetTitle className="sr-only">Nav sidebar</SheetTitle>
             </SheetHeader>
             <div className="flex w-1/2 flex-col px-4 gap-4 text-xs font-medium">
               <NavLinks />
             </div>
-            <div className="px-4 w-[165px] mt-2">
+            <div className="px-4 w-[175px] mt-2">
               <DownloadButton />
             </div>
           </SheetContent>
