@@ -28,22 +28,28 @@ const blocks = [
 
 export default function Rating() {
   return (
-    <section className="w-full py-10 lg:py-10">
+    <section className="w-full px-2 py-10 lg:py-10">
       {/* Desktop */}
       <div className="hidden md:flex items-center justify-between gap-8">
         {blocks.map((block, index) => (
-          <div key={block.id} className="flex flex-1 items-center gap-8">
-            <div className="flex flex-col flex-1">
-              <div className="flex items-center gap-2">
-                {block.icon ? (
-                  <Image
-                    src={block?.icon}
-                    alt="icon"
-                    width={36}
-                    height={36}
-                    className="w-auto h-auto"
-                  />
-                ) : null}
+          <div
+            key={block.id}
+            className="flex flex-1 items-center gap-8 min-w-0"
+          >
+            <div className="flex flex-col flex-1 min-w-0">
+              <div className="flex items-center gap-2 min-w-0">
+                {block.icon && (
+                  <div className="flex-shrink-0">
+                    <Image
+                      src={block.icon}
+                      alt="icon"
+                      width={36}
+                      height={36}
+                      className="w-full"
+                      priority={index < 2}
+                    />
+                  </div>
+                )}
                 <div
                   className="font-medium text-2xl"
                   style={{ fontFamily: "'Satoshi Variable', sans-serif" }}
@@ -51,12 +57,12 @@ export default function Rating() {
                   {block.number}
                 </div>
               </div>
-              <p className="text-muted-foreground">{block.text}</p>
+              <p className="text-muted-foreground text-wrap">{block.text}</p>{" "}
             </div>
 
-            {/* Add divider except for last item */}
+            {/* Divider */}
             {index < blocks.length - 1 && (
-              <div className="w-px h-20 bg-gradient-to-b from-transparent via-gray-400 to-transparent" />
+              <div className="w-px h-16 bg-gradient-to-b from-transparent via-gray-400 to-transparent flex-shrink-0" />
             )}
           </div>
         ))}

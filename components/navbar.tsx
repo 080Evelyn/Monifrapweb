@@ -83,11 +83,17 @@ const Navbar = () => {
         className={cn(
           "hidden lg:flex justify-between items-center w-full z-50 p-6 transition-colors duration-300",
           isScrolled
-            ? "fixed w-full -mx-4 top-0 bg-background border-b-1 shadow-sm px-6 py-2"
+            ? "fixed w-full -mx-4 top-0 bg-background border-b-1 shadow-sm px-10 py-2"
             : "relative"
         )}
       >
-        <Image src="/logo.svg" alt="logo" width={100} height={100} />
+        <Image
+          src="/logo.svg"
+          alt="logo"
+          width={40}
+          height={40}
+          className="w-25 cursor-pointer"
+        />
 
         <div className="flex gap-4 text-xs font-medium">
           <NavLinks />
@@ -101,7 +107,7 @@ const Navbar = () => {
         className={cn(
           "flex lg:hidden justify-between items-center w-full z-50 p-6 transition-colors duration-300",
           isScrolled
-            ? "fixed top-0 bg-background border-b-1 shadow-sm py-2.5 px-4"
+            ? "fixed top-0 bg-background md:-mx-2 border-b-1 shadow-sm py-2.5 px-6 md:px-8"
             : "sticky top-0"
         )}
       >
