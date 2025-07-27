@@ -23,7 +23,7 @@ const Footer = () => {
               <div className="p-2 border rounded-full border-white/15">
                 <MapPin size={20} className="size-5" />
               </div>
-              <span>Ajar, Lagos</span>
+              <span>Ago Palace Way, Lagos</span>
             </div>
             <div className="flex text-white items-center gap-4">
               <div className="p-2 border rounded-full border-white/15">

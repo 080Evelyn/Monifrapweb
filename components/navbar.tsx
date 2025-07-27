@@ -12,6 +12,7 @@ import {
 import { Menu } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import ComingSoon from "./coming-soon";
 
 const NAV_LINKS = [
   { label: "Home", path: "#home" },
@@ -23,6 +24,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [hash, setHash] = useState("");
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,7 +52,7 @@ const Navbar = () => {
               {link.label}
               <span
                 className={cn(
-                  "absolute left-0 bottom-[-2px] h-[3px] rounded-lg bg-primary transition-all duration-300 md:block",
+                  "hidden absolute left-0 bottom-[-2px] h-[3px] rounded-lg bg-primary transition-all duration-300 md:block",
                   isActive ? "w-1/2 opacity-100" : "w-0 group-hover:w-1/2"
                 )}
               />
@@ -62,7 +64,10 @@ const Navbar = () => {
   );
 
   const DownloadButton = () => (
-    <div className="flex items-center gap-2 bg-primary text-xs font-medium text-white py-1.5 ps-2 pe-1 cursor-pointer rounded-full">
+    <div
+      className="flex items-center gap-2 bg-primary text-xs font-medium text-white py-1.5 ps-2 pe-1 cursor-pointer rounded-full"
+      onClick={() => setDialogOpen(true)}
+    >
       <span>Download App</span>
       <div className="relative bg-white rounded-full p-1.5">
         <Image
@@ -135,6 +140,8 @@ const Navbar = () => {
           </SheetContent>
         </Sheet>
       </div>
+
+      <ComingSoon open={dialogOpen} setOpen={setDialogOpen} />
     </>
   );
 };

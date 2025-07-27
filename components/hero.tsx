@@ -1,12 +1,17 @@
+"use client";
+
 import Image from "next/image";
 import Navbar from "./navbar";
 import { ShieldCheck, Zap } from "lucide-react";
+import { useState } from "react";
+import ComingSoon from "./coming-soon";
 
 const Hero = () => {
+  const [open, setOpen] = useState(false);
   return (
     <section
       id="home"
-      className="min-h-[620px] bg-background relative overflow-x-hidden pt-1"
+      className="min-h-[80dvh] sm:min-h-[620px] bg-background relative overflow-x-hidden pt-1"
     >
       <div className="absolute inset-0 lg:mt-1">
         <div className="absolute md:rounded-l-[27px] left-0 bottom-0 w-full md:w-1/2 h-full custom-left-gradient" />
@@ -55,6 +60,7 @@ const Hero = () => {
             <div
               key={i}
               className="flex-1 flex items-center gap-3 bg-foreground py-2 px-3 rounded-md cursor-pointer"
+              onClick={() => setOpen(true)}
             >
               <Image src={b.src} alt="" width={24} height={24} />
               <div className="flex flex-col text-white">
@@ -121,6 +127,8 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      <ComingSoon open={open} setOpen={setOpen} />
     </section>
   );
 };
