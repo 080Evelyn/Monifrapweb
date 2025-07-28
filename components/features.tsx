@@ -6,12 +6,14 @@ const Features = () => {
       id="features"
       className="md:mx-10 lg:mx-25 rounded-lg p-5 pt-20 text-center"
     >
-      <div className="text-[10px] inline-block font-medium text-primary border border-primary rounded-full px-2 py-1">
-        Features
+      <div className="flex flex-col items-center justify-center gap-4">
+        <div className="text-[10px] font-medium text-primary border border-primary rounded-full px-2 py-1">
+          Features
+        </div>
+        <span className="text-3xl md:text-[40px] font-medium md:px-5">
+          Explore the Features That Make Monifrap the Smartest Way to Bank
+        </span>
       </div>
-      <span className="text-3xl md:text-[40px] font-medium">
-        Explore the Features That Make Monifrap the Smartest Way to Bank
-      </span>
 
       <div className="grid gap-6 mt-4">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
