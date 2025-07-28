@@ -64,19 +64,21 @@ const Navbar = () => {
   );
 
   const DownloadButton = () => (
-    <div
-      className="flex items-center gap-2 bg-primary text-xs font-medium text-white py-1.5 ps-2 pe-1 cursor-pointer rounded-full"
-      onClick={() => setDialogOpen(true)}
-    >
-      <span>Download App</span>
-      <div className="relative bg-white rounded-full p-1.5">
-        <Image
-          src="/icons/arrow-right.svg"
-          alt="arrow-right"
-          width={20}
-          height={20}
-          className="size-[20px]"
-        />
+    <div className="inline-block">
+      <div
+        className="flex whitespace-break-spaces items-center gap-2 bg-primary text-xs font-medium text-white py-1.5 ps-2 pe-1 cursor-pointer rounded-full"
+        onClick={() => setDialogOpen(true)}
+      >
+        <span>Download App</span>
+        <div className="relative bg-white rounded-full p-1.5">
+          <Image
+            src="/icons/arrow-right.svg"
+            alt="arrow-right"
+            width={20}
+            height={20}
+            className="size-[20px]"
+          />
+        </div>
       </div>
     </div>
   );
@@ -127,14 +129,14 @@ const Navbar = () => {
           <SheetTrigger>
             <Menu className="size-8" />
           </SheetTrigger>
-          <SheetContent className="w-1/2 h-[26%] md:h-[35dvh] rounded-lg mt-4 mr-4">
+          <SheetContent className="w-1/2 h-[28%] md:h-[35dvh] rounded-lg mt-4 mr-4">
             <SheetHeader>
               <SheetTitle className="sr-only">Nav sidebar</SheetTitle>
             </SheetHeader>
             <div className="flex w-1/2 flex-col px-4 gap-4 text-xs font-medium">
               <NavLinks />
             </div>
-            <div className="px-4 w-[175px] mt-4">
+            <div className="px-4 mt-4">
               <DownloadButton />
             </div>
           </SheetContent>
