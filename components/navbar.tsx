@@ -84,13 +84,13 @@ const Navbar = () => {
   );
 
   return (
-    <>
+    <div id="home">
       {/* Desktop */}
       <div
         className={cn(
           "hidden lg:flex justify-between items-center w-full z-50 p-6 transition-colors duration-300",
           isScrolled
-            ? "fixed w-full -mx-4 top-0 bg-background border-b-1 shadow-sm px-10 py-2"
+            ? "fixed w-full -mx-4 top-0 backdrop-blur-md shadow-sm px-10 py-2"
             : "relative"
         )}
       >
@@ -114,7 +114,7 @@ const Navbar = () => {
         className={cn(
           "flex lg:hidden justify-between items-center w-full z-50 p-6 transition-colors duration-300",
           isScrolled
-            ? "fixed top-0 bg-background md:-mx-2 border-b-1 shadow-sm py-2.5 px-6 md:px-8"
+            ? "fixed top-0  backdrop-blur-md md:-mx-2 shadow-sm py-2.5 px-6 md:px-8"
             : "sticky top-0"
         )}
       >
@@ -129,7 +129,7 @@ const Navbar = () => {
           <SheetTrigger>
             <Menu className="size-8" />
           </SheetTrigger>
-          <SheetContent className="w-1/2 h-[28%] md:h-[35dvh] rounded-lg mt-4 mr-4">
+          <SheetContent className="w-1/2 h-55 sm:h-[35dvh] rounded-lg mt-4 mr-4">
             <SheetHeader>
               <SheetTitle className="sr-only">Nav sidebar</SheetTitle>
             </SheetHeader>
@@ -144,7 +144,7 @@ const Navbar = () => {
       </div>
 
       <ComingSoon open={dialogOpen} setOpen={setDialogOpen} />
-    </>
+    </div>
   );
 };
 

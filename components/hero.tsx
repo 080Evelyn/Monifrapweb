@@ -9,10 +9,7 @@ import ComingSoon from "./coming-soon";
 const Hero = () => {
   const [open, setOpen] = useState(false);
   return (
-    <section
-      id="home"
-      className="min-h-[80dvh] sm:min-h-[620px] bg-background relative overflow-x-hidden pt-1"
-    >
+    <section className="min-h-[80dvh] sm:min-h-[620px] bg-background relative overflow-x-hidden pt-1">
       <div className="absolute inset-0 lg:mt-1">
         <div className="absolute md:rounded-l-[27px] left-0 bottom-0 w-full md:w-1/2 h-full custom-left-gradient" />
         <span className="absolute bottom-10 left-10 w-64 h-64 md:w-80 md:h-80 bg-[#153D8040] blur-3xl rounded-full" />
