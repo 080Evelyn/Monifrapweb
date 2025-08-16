@@ -9,10 +9,7 @@ import ComingSoon from "./coming-soon";
 const Hero = () => {
   const [open, setOpen] = useState(false);
   return (
-    <section
-      id="home"
-      className="min-h-[80dvh] sm:min-h-[620px] bg-background relative overflow-x-hidden pt-1"
-    >
+    <section className="min-h-[85dvh] sm:min-h-[620px] bg-background relative overflow-x-hidden pt-1">
       <div className="absolute inset-0 lg:mt-1">
         <div className="absolute md:rounded-l-[27px] left-0 bottom-0 w-full md:w-1/2 h-full custom-left-gradient" />
         <span className="absolute bottom-10 left-10 w-64 h-64 md:w-80 md:h-80 bg-[#153D8040] blur-3xl rounded-full" />
@@ -46,7 +43,7 @@ const Hero = () => {
           </p>
         </div>
 
-        <div className="mt-8 flex flex-wrap w-full max-w-xs md:max-w-md gap-4 z-30">
+        <div className="mt-3 md:mt-8 flex flex-wrap w-full max-w-70 md:max-w-xs gap-4 z-30">
           {[
             {
               src: "/icons/apple.svg",
@@ -65,16 +62,16 @@ const Hero = () => {
               <Image src={b.src} alt="" width={24} height={24} />
               <div className="flex flex-col text-white">
                 <span className="text-[8px]">{b.label[0]}</span>
-                <span className="text-sm">{b.label[1]}</span>
+                <span className="text-xs md:text-sm">{b.label[1]}</span>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="hidden absolute z-20 bottom-0 w-full md:flex items-end justify-center">
+      <div className="absolute z-20 bottom-0 w-full flex items-end justify-center">
         {/* Left */}
-        <div className="relative w-1/4 max-w-[300px]">
+        <div className="relative w-full md:w-1/4 max-w-60 md:max-w-[300px]">
           <Image
             src="/images/mockup-left.png"
             alt="Left"
@@ -82,13 +79,13 @@ const Hero = () => {
             height={800}
             className="w-full block"
           />
-          <div className="absolute w-40 left-0 -top-5 -translate-x-1/3 z-30 bg-white/30 backdrop-blur-xs p-2 rounded-sm text-wrap md:text-[0.625rem] lg:text-xs font-medium flex flex-col border border-[#edeefc] justify-center items-center gap-2">
+          <div className="absolute w-30 md:w-40 left-12 md:left-0 -top-5 -translate-x-1/3 z-30 bg-white/30 backdrop-blur-xs p-2 rounded-sm text-wrap text-[0.5rem] md:text-[0.625rem] lg:text-xs font-medium flex flex-col border border-[#edeefc] justify-center items-center md:gap-2">
             <Image
               src="/images/hero-avatar.svg"
               alt="Group Avatar"
               width={100}
               height={40}
-              className="w-full max-w-37 lg:max-w-45"
+              className="w-full max-w-24 md:max-w-37 lg:max-w-45"
             />
             <span className="text-start">
               Trusted by 5,000+ users take full control of their Earnings
@@ -97,7 +94,7 @@ const Hero = () => {
         </div>
 
         {/* Center */}
-        <div className="relative w-full md:w-1/4 max-w-[300px] mx-auto md:-mx-[8%] z-30">
+        <div className="relative w-full max-w-60 md:w-1/4 md:max-w-[300px] -mx-[20%] md:-mx-[8%] z-30">
           <Image
             src="/images/mockup-center.png"
             alt="Center"
@@ -106,14 +103,14 @@ const Hero = () => {
             className="w-full h-auto block"
             priority
           />
-          <div className="absolute max-lg:w-full right-[10%] md:right-[23%] top-1/5 translate-x-full z-30 bg-white/50 backdrop-blur p-2 rounded-sm text-primary md:text-[0.625rem] lg:text-xs lg:text-nowrap font-medium flex items-center gap-2">
-            <Zap className="size-4 md:size-5 fill-primary" />
+          <div className="absolute max-lg:w-full right-[50%] md:right-[23%] top-1/10 md:top-1/5 translate-x-full z-30 bg-white/50 backdrop-blur p-2 rounded-sm text-primary text-[0.4rem] md:text-[0.625rem] lg:text-xs lg:text-nowrap font-medium flex items-center gap-2">
+            <Zap className="size-3 md:size-5 fill-primary" />
             <span>Experience lightning-fast transactions, every time.</span>
           </div>
         </div>
 
         {/* Right */}
-        <div className="relative w-1/4 max-w-[300px]">
+        <div className="relative w-full md:w-1/4 max-w-60 md:max-w-[300px]">
           <Image
             src="/images/mockup-right.png"
             alt="Right"
@@ -121,8 +118,8 @@ const Hero = () => {
             height={800}
             className="w-full block"
           />
-          <div className="absolute right-[45%] max-lg:w-full top-1/4 translate-x-full z-30 bg-primary/60 backdrop-blur p-2 rounded-sm text-white md:text-[0.625rem] lg:text-xs font-medium flex lg:text-nowrap items-center gap-2">
-            <ShieldCheck className="size-5" />
+          <div className="absolute right-[105%] md:right-[45%] max-lg:w-full top-1/4 translate-x-full z-30 bg-primary/60 backdrop-blur p-2 rounded-sm text-white text-[0.4rem] md:text-[0.625rem] lg:text-xs font-medium flex lg:text-nowrap items-center gap-2">
+            <ShieldCheck className="size-3 md:size-5" />
             <span>Enjoy full peace of mind with 100% security</span>
           </div>
         </div>
