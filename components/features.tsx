@@ -1,3 +1,4 @@
+import { Feature1, Feature2, Feature3, Feature4 } from "@/public/assets";
 import Image from "next/image";
 
 const Features = () => {
@@ -19,7 +20,7 @@ const Features = () => {
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           <div className="flex flex-col text-start p-1 feature-border-gradient">
             <Image
-              src="/images/feature-1.svg"
+              src={Feature1}
               alt="feature"
               width={100}
               height={100}
@@ -37,7 +38,7 @@ const Features = () => {
           </div>
           <div className="flex flex-col text-start p-1 feature-border-gradient">
             <Image
-              src="/images/feature-2.svg"
+              src={Feature2}
               alt="feature"
               width={100}
               height={100}
@@ -58,7 +59,7 @@ const Features = () => {
         <div className="grid gap-4 md:grid-cols-9">
           <div className="flex flex-col md:col-span-5 text-start p-1 feature-border-gradient">
             <Image
-              src="/images/feature-3.svg"
+              src={Feature3}
               alt="feature"
               width={100}
               height={100}
@@ -77,7 +78,7 @@ const Features = () => {
 
           <div className="flex flex-col md:col-span-4 text-start p-1 feature-border-gradient">
             <Image
-              src="/images/feature-4.svg"
+              src={Feature4}
               alt="feature"
               width={100}
               height={100}

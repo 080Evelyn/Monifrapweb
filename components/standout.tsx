@@ -1,3 +1,4 @@
+import { MonifrapMobile } from "@/public/assets";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
@@ -19,7 +20,7 @@ const Standout = () => {
 
         <div className="w-full md:w-[48%] z-20 flex items-end">
           <Image
-            src="/images/monifrap-mobile.png"
+            src={MonifrapMobile}
             alt="standout"
             height={100}
             width={100}

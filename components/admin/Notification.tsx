@@ -82,7 +82,7 @@ const AdminNotification = ({
             </button>
           </div>
 
-          <div className="inline-flex mx-5 relative items-baseline gap-1 pb-1 text-sm font-semibold cursor-pointer underline-secondary">
+          <div className="inline-flex mx-5 relative items-baseline gap-1 pb-1.25 text-sm font-semibold cursor-pointer underline-secondary">
             <span>All</span>
             <span className="bg-secondary/40 px-0.5 py-0.25 rounded-[3px] font-semibold text-[8px] ">
               22
