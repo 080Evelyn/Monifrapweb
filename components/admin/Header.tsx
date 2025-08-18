@@ -24,14 +24,14 @@ const AdminHeader = () => {
           </div>
           <input
             type="text"
-            className="w-[37vw] h-10 !border-[0.84px] !border-secondary/20 !rounded-full !px-12 !bg-[#F0F0F0]"
+            className="max-w-[50vw] lg:min-w-[37vw] h-10 !border-[0.64px] !border-secondary/10 !rounded-full !px-12 !bg-[#F0F0F0]"
           />
           <Image
             width={100}
             height={100}
             src={SearchFilther}
             alt="filter icon"
-            className="h-5 absolute top-1/2 right-3 -translate-y-1/2"
+            className="h-5 absolute top-1/2 -right-4 -translate-y-1/2"
           />
         </div>
 

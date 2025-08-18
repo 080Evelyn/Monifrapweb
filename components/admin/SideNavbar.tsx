@@ -8,9 +8,9 @@ import {
 } from "@/components/ui/sheet";
 import { AdminLogo, logo } from "@/public/assets";
 import {
+  Aperture,
   Bell,
   ChartNoAxesCombined,
-  LockKeyholeIcon,
   LogOut,
   Menu,
   UsersRound,
@@ -39,12 +39,12 @@ const SideNavbar = () => {
       icon: <Bell className="size-4.5" />,
     },
     {
-      path: "/admin/kyc-management",
-      name: "Kyc Management",
-      icon: <LockKeyholeIcon className="size-4.5" />,
+      path: "/admin/accounts",
+      name: "Linked Account",
+      icon: <Aperture className="size-4.5" />,
     },
     {
-      path: "/admin/users-management",
+      path: "/admin/users",
       name: "Users Management",
       icon: <UsersRound className="size-4.5" />,
     },
