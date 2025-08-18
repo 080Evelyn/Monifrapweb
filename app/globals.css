@@ -3,6 +3,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+.font-inter {
+  font-family: var(--font-inter), sans-serif;
+}
+
 .custom-left-gradient {
   background: linear-gradient(60deg, #153d8040 0%, transparent 75%);
 }
@@ -33,7 +37,7 @@
   --popover-foreground: oklch(0.145 0 0);
   --primary: #0a55d0;
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
+  --secondary: #153d80;
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
@@ -137,4 +141,15 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.underline-secondary::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0.25rem;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  background-color: var(--secondary);
 }
