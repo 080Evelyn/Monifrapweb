@@ -1,16 +1,46 @@
 "use client";
 
+import {
+  Facebook,
+  Instagram,
+  Linkedin,
+  MutedLogo,
+  Twitter,
+} from "@/public/assets";
 import { MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
+  const socialMediaLinks = [
+    {
+      name: "twitter",
+      icon: Twitter,
+      label: "Twitter",
+    },
+    {
+      name: "facebook",
+      icon: Facebook,
+      label: "Facebook",
+    },
+    {
+      name: "instagram",
+      icon: Instagram,
+      label: "Instagram",
+    },
+    {
+      name: "linkedin",
+      icon: Linkedin,
+      label: "LinkedIn",
+    },
+  ];
+
   return (
     <section className="bg-[#191818] px-5 md:px-14 lg:px-20 py-15">
       <div className="grid grid-cols-5 md:grid-cols-5 gap-2">
         <div className="col-span-2 md:col-span-3">
           <Image
-            src="/icons/white-logo.svg"
+            src={MutedLogo}
             alt="logo"
             width={100}
             height={100}
@@ -35,42 +65,21 @@ const Footer = () => {
 
           <div className="flex flex-row flex-wrap gap-2 md:gap-4 items-center">
             <span className="text-white hidden md:block">Social Media</span>
-            <div className="p-1 md:p-2 border rounded-full border-white/15">
-              <Image
-                src="/icons/twitter.svg"
-                alt="twitter"
-                width={20}
-                height={20}
-                className="size-6.5"
-              />
-            </div>
-            <div className="p-2 border rounded-full border-white/15">
-              <Image
-                src="/icons/facebook.svg"
-                alt="facebook"
-                width={20}
-                height={20}
-                className="size-6.5"
-              />
-            </div>
-            <div className="p-2 border rounded-full border-white/15">
-              <Image
-                src="/icons/instagram.svg"
-                alt="instagram"
-                width={20}
-                height={20}
-                className="size-6.5"
-              />
-            </div>
-            <div className="p-2 border rounded-full border-white/15">
-              <Image
-                src="/icons/linkedin.svg"
-                alt="linkedin"
-                width={20}
-                height={20}
-                className="size-6.5"
-              />
-            </div>
+            {socialMediaLinks.map((social) => (
+              <div
+                key={social.name}
+                className="p-2 border rounded-full border-white/15"
+                aria-label={social.label}
+              >
+                <Image
+                  src={social.icon}
+                  alt={social.name}
+                  width={20}
+                  height={20}
+                  className="size-6.5"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

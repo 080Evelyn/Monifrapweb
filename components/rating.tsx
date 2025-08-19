@@ -5,17 +5,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import { RatingAvatar, RatingStar } from "@/public/assets";
 
 const blocks = [
   {
     id: 1,
-    icon: "/images/rating-avatar.svg",
+    icon: RatingAvatar,
     text: "Thousands join us for a reason. Join us and discover the benefits.",
     number: "99k+",
   },
   {
     id: 2,
-    icon: "/icons/star.svg",
+    icon: RatingStar,
     text: "Positive ratings by users around the world that use Monifrap.",
     number: "4.9",
   },

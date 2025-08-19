@@ -13,6 +13,7 @@ import { Menu } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import ComingSoon from "./coming-soon";
+import { ArrowRight, logo } from "@/public/assets";
 
 const NAV_LINKS = [
   { label: "Home", path: "#home" },
@@ -72,7 +73,7 @@ const Navbar = () => {
         <span>Download App</span>
         <div className="relative bg-white rounded-full p-1.5">
           <Image
-            src="/icons/arrow-right.svg"
+            src={ArrowRight}
             alt="arrow-right"
             width={20}
             height={20}
@@ -95,7 +96,7 @@ const Navbar = () => {
         )}
       >
         <Image
-          src="/logo.svg"
+          src={logo}
           alt="logo"
           width={40}
           height={40}
@@ -112,14 +113,12 @@ const Navbar = () => {
       {/* Mobile */}
       <div
         className={cn(
-          "flex lg:hidden justify-between items-center w-full z-50 p-6 transition-colors duration-300",
-          isScrolled
-            ? "fixed top-0  backdrop-blur-md md:-mx-2 shadow-sm py-2.5 px-6 md:px-8"
-            : "sticky top-0"
+          "flex lg:hidden justify-between items-center fixed top-0  backdrop-blur-md md:-mx-2 py-2 px-6 md:px-8 w-full z-50 transition-colors duration-300",
+          isScrolled ? "shadow-sm mt-0" : "shadow-none pt-6"
         )}
       >
         <Image
-          src="/logo.svg"
+          src={logo}
           alt="logo"
           width={100}
           height={100}

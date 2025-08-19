@@ -1,3 +1,4 @@
+import { Step1, Step2, Step3 } from "@/public/assets";
 import Image from "next/image";
 import React from "react";
 
@@ -22,7 +23,7 @@ const HowItWorks = () => {
         <div className="flex flex-col gap-8 px-1.5 pt-1.5 pb-4.5 bg-primary/5 rounded-[16px]">
           <div className="flex flex-col items-start gap-2">
             <Image
-              src="/images/step-1.svg"
+              src={Step1}
               alt="Create an account"
               width={100}
               height={100}
@@ -44,7 +45,7 @@ const HowItWorks = () => {
         <div className="flex flex-col gap-8 px-1.5 pt-1.5 pb-4.5 bg-primary/5 rounded-[16px]">
           <div className="flex flex-col items-start gap-2">
             <Image
-              src="/images/step-2.svg"
+              src={Step2}
               alt="Create an account"
               width={100}
               height={100}
@@ -67,7 +68,7 @@ const HowItWorks = () => {
         <div className="flex flex-col gap-8 px-1.5 pt-1.5 pb-4.5 bg-primary/5 rounded-[16px]">
           <div className="flex flex-col items-start gap-2">
             <Image
-              src="/images/step-3.svg"
+              src={Step3}
               alt="Create an account"
               width={100}
               height={100}
