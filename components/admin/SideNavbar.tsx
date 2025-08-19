@@ -10,9 +10,9 @@ import { AdminLogo, logo } from "@/public/assets";
 import {
   Aperture,
   Bell,
-  ChartNoAxesCombined,
   LogOut,
   Menu,
+  TrendingUp,
   UsersRound,
 } from "lucide-react";
 import Image from "next/image";
@@ -31,7 +31,7 @@ const SideNavbar = () => {
     {
       path: "/admin/dashboard",
       name: "Overview",
-      icon: <ChartNoAxesCombined className="size-4.5" />,
+      icon: <TrendingUp className="size-4.5" />,
     },
     {
       path: "/admin/transactions",
