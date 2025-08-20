@@ -7,7 +7,7 @@ const AdminLayout = ({ children }: { children: React.ReactNode }) => {
       <SideNavbar />
       <div className="flex flex-col max-lg:mt-12.5 w-full lg:h-screen overflow-y-auto lg:w-[calc(100vw-var(--sidebar-width))]">
         <AdminHeader />
-        <div className="bg-[#F0F0F0] px-4">{children}</div>
+        <div className="bg-[#F0F0F0] px-4 overflow-x-hidden">{children}</div>
       </div>
     </div>
   );
