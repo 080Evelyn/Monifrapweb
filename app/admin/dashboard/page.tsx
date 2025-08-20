@@ -6,7 +6,7 @@ import React from "react";
 
 const page = () => {
   return (
-    <div className="py-2 grid gap-2">
+    <div className="py-2 grid grid-cols-1 gap-2">
       <Overview />
       <TotalUsersGraph />
       <div className="grid grid-cols-1 gap-2.5 md:grid-cols-2">

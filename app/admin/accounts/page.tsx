@@ -1,5 +1,11 @@
+import Overview from "@/components/admin/account/page";
+
 const page = () => {
-  return <div>Linked Account oage</div>;
+  return (
+    <div className="py-2 grid grid-cols-1 gap-2">
+      <Overview />
+    </div>
+  );
 };
 
 export default page;

@@ -50,7 +50,7 @@ const LinkedBankPieChart = () => {
             <Tooltip formatter={(value) => `${value}%`} />
           </PieChart>
         </ResponsiveContainer>
-        <div className="flex flex-col gap-2 pr-4 justify-center ">
+        <div className="flex flex-col gap-2 text-sm pr-4 justify-center ">
           {data.map((item, index) => (
             <div
               className="flex justify-between items-center w-full lg:ml-2"
