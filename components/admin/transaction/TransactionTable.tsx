@@ -96,7 +96,7 @@ export const columns: ColumnDef<Payment>[] = [
   },
   {
     accessorKey: "timestamp",
-    header: "Date & Time",
+    header: "Timestamp",
     cell: ({ row }) => <div>{row.getValue("timestamp")}</div>,
   },
   {
@@ -109,7 +109,7 @@ export const columns: ColumnDef<Payment>[] = [
         <div
           className={cn(
             rowStatus === "successful" ? "bg-[#94E9B8]" : "text-[#FF6B6B]",
-            "capitalize text-center font-medium py-1.5 rounded-sm"
+            "capitalize text-center w-4/5 font-medium py-1.5 rounded-sm"
           )}
         >
           {rowStatus}
@@ -119,7 +119,7 @@ export const columns: ColumnDef<Payment>[] = [
   },
   {
     accessorKey: "amount",
-    header: () => <div className="text-right">Amount</div>,
+    header: () => <div>Amount</div>,
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue("amount"));
 
@@ -128,7 +128,7 @@ export const columns: ColumnDef<Payment>[] = [
         currency: "NGN",
       }).format(amount);
 
-      return <div className="text-right font-medium">{formatted}</div>;
+      return <div className="font-medium">{formatted}</div>;
     },
   },
   {
@@ -139,7 +139,7 @@ export const columns: ColumnDef<Payment>[] = [
       return (
         <Dialog>
           <DialogTrigger>
-            <ChevronRightCircle className="size-5.5 cursor-pointer text-[#141B34]" />
+            <ChevronRightCircle className="text-right size-5.5 cursor-pointer text-[#141B34]" />
           </DialogTrigger>
           <DetailsDialog {...payment} />
         </Dialog>
