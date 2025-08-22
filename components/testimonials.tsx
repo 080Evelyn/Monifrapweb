@@ -2,13 +2,19 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import {
+  Testimonial1,
+  Testimonial2,
+  Testimonial3,
+  Testimonial4,
+} from "@/public/assets";
 
 const users = [
   {
     id: 1,
     name: "Destiny Emmanuel",
     role: "Travel Enthusiast",
-    avatar: "/images/testimonial-1.jpg",
+    avatar: Testimonial1,
     testimonial:
       "Monifrap made managing my money across two different banks so easy. I get real-time notifications, and I've never missed a payment since. It feels like all my banking is finally in one place.",
   },
@@ -16,7 +22,7 @@ const users = [
     id: 2,
     name: "Jane Doe",
     role: "Freelance Designer",
-    avatar: "/images/testimonial-2.png",
+    avatar: Testimonial2,
     testimonial:
       "Monifrap gives me peace of mind. I can track every transaction and manage my business payments without stress. It’s a game changer.",
   },
@@ -24,7 +30,7 @@ const users = [
     id: 3,
     name: "Michael Smith",
     role: "Small Business Owner",
-    avatar: "/images/testimonial-3.jpg",
+    avatar: Testimonial3,
     testimonial:
       "Switching to Monifrap saved me so much time. I love how everything is in one place and super easy to use.",
   },
@@ -32,7 +38,7 @@ const users = [
     id: 4,
     name: "Aisha Bello",
     role: "Student",
-    avatar: "/images/testimonial-4.jpg",
+    avatar: Testimonial4,
     testimonial:
       "Managing my student budget is so much easier with Monifrap. The app keeps me in control without any hassle.",
   },

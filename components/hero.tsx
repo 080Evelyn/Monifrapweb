@@ -22,6 +22,13 @@ const containerVariants: Variants = {
     transition: { staggerChildren: 0.2 },
   },
 };
+const mainContainerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.3, delayChildren: 0.15 },
+  },
+};
 
 const fadeUpVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -71,7 +78,7 @@ const Hero = () => {
       >
         <motion.div
           className="flex flex-col  max-md:gap-4 items-center mt-25 sm:mt-22 md:mt-8 flex-grow"
-          variants={containerVariants}
+          variants={mainContainerVariants}
         >
           <motion.div
             className="flex flex-col items-center max-sm:gap-4 text-center w-full md:w-4/5 lg:max-w-2/3"

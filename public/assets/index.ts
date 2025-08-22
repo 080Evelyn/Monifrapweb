@@ -26,6 +26,10 @@ import Instagram from "./icons/instagram.svg";
 import Linkedin from "./icons/linkedin.svg";
 import RatingAvatar from "./images/rating-avatar.svg";
 import RatingStar from "./icons/star.svg";
+import Testimonial1 from "./images/testimonial-1.jpg";
+import Testimonial2 from "./images/testimonial-2.png";
+import Testimonial3 from "./images/testimonial-3.jpg";
+import Testimonial4 from "./images/testimonial-4.jpg";
 
 export {
   logo,
@@ -56,4 +60,8 @@ export {
   Linkedin,
   RatingAvatar,
   RatingStar,
+  Testimonial1,
+  Testimonial2,
+  Testimonial3,
+  Testimonial4,
 };
