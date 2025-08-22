@@ -1,15 +1,15 @@
 const Overview = () => {
   const overviewContent = [
     {
-      name: "Revenue Generated",
+      name: "Total Users",
       value: "7,300",
     },
     {
-      name: "Total Users",
+      name: "Total Bank Linked",
       value: "3,300",
     },
     {
-      name: "Total transaction today",
+      name: "Total Failed Linking",
       value: "134",
     },
   ];
