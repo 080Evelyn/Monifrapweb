@@ -4,6 +4,7 @@ import Image from "next/image";
 import Navbar from "./navbar";
 import { ShieldCheck, Zap } from "lucide-react";
 import { useState } from "react";
+import { motion, Variants } from "framer-motion";
 import ComingSoon from "./coming-soon";
 import {
   AppleIcon,
@@ -14,12 +15,46 @@ import {
   Playstore,
 } from "@/public/assets";
 
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 },
+  },
+};
+const mainContainerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.3, delayChildren: 0.15 },
+  },
+};
+
+const fadeUpVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+const imageVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.7, ease: "easeOut" },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, x: 40 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
 const Hero = () => {
   const [open, setOpen] = useState(false);
 
   return (
     <section className="bg-background relative overflow-x-hidden pt-1">
-      {/* Background elements remain unchanged */}
+      {/* Background gradients */}
       <div className="absolute inset-0 lg:mt-1">
         <div className="absolute md:rounded-l-[27px] left-0 bottom-0 w-full md:w-1/2 h-full custom-left-gradient" />
         <span className="absolute bottom-10 left-10 w-64 h-64 md:w-80 md:h-80 bg-[#153D8040] blur-3xl rounded-full" />
@@ -34,10 +69,21 @@ const Hero = () => {
 
       <Navbar />
 
-      {/* Content container - now flex-grow to push mockups to bottom */}
-      <div className="flex flex-col h-full px-3">
-        <div className="flex flex-col  max-md:gap-4 items-center mt-25 sm:mt-22 md:mt-8 flex-grow">
-          <div className="flex flex-col items-center max-sm:gap-4 text-center w-full md:w-4/5 lg:max-w-2/3">
+      {/* Content container */}
+      <motion.div
+        className="flex flex-col h-full px-3"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.div
+          className="flex flex-col  max-md:gap-4 items-center mt-25 sm:mt-22 md:mt-8 flex-grow"
+          variants={mainContainerVariants}
+        >
+          <motion.div
+            className="flex flex-col items-center max-sm:gap-4 text-center w-full md:w-4/5 lg:max-w-2/3"
+            variants={fadeUpVariants}
+          >
             <span className="text-[10px] font-medium text-primary border border-primary rounded-full px-2 py-1">
               Peak financial service
             </span>
@@ -52,18 +98,16 @@ const Hero = () => {
               Simplify how you save, spend, and plan – all from one intelligent
               platform built for everyday people.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="mt-3 md:mt-8 flex flex-wrap w-full max-w-70 md:max-w-xs gap-4 z-30">
+          {/* Buttons */}
+          <motion.div
+            className="mt-3 md:mt-8 flex flex-wrap w-full max-w-70 md:max-w-xs gap-4 z-30"
+            variants={fadeUpVariants}
+          >
             {[
-              {
-                src: AppleIcon,
-                label: ["Download on the", "App Store"],
-              },
-              {
-                src: Playstore,
-                label: ["Get it on", "Google Play"],
-              },
+              { src: AppleIcon, label: ["Download on the", "App Store"] },
+              { src: Playstore, label: ["Get it on", "Google Play"] },
             ].map((b, i) => (
               <div
                 key={i}
@@ -77,13 +121,19 @@ const Hero = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        {/* Image mockups  */}
-        <div className="relative z-20 w-full flex items-end justify-center mt-20 sm:mt-2">
+        {/* Image mockups */}
+        <motion.div
+          className="relative z-20 w-full flex items-end justify-center mt-20 sm:mt-2 overflow-hidden"
+          variants={containerVariants}
+        >
           {/* Left */}
-          <div className="relative w-full md:w-1/4 max-w-60 md:max-w-[300px]">
+          <motion.div
+            className="relative w-full md:w-1/4 max-w-60 md:max-w-[300px]"
+            variants={imageVariants}
+          >
             <Image
               src={HeroLeft}
               alt="Left"
@@ -91,7 +141,10 @@ const Hero = () => {
               height={800}
               className="w-full block"
             />
-            <div className="absolute w-30 md:w-40 left-10 md:left-0 -top-5 -translate-x-1/3 z-30 bg-white/30 backdrop-blur-xs p-2 rounded-sm text-wrap text-[0.5rem] md:text-[0.625rem] lg:text-xs font-medium flex flex-col border border-[#edeefc] justify-center items-center md:gap-2">
+            <motion.div
+              className="absolute w-30 md:w-40 left-10 md:left-0 -top-5 -translate-x-1/3 z-30 bg-white/30 backdrop-blur-xs p-2 rounded-sm text-wrap text-[0.5rem] md:text-[0.625rem] lg:text-xs font-medium flex flex-col border border-[#edeefc] justify-center items-center md:gap-2"
+              variants={cardVariants}
+            >
               <Image
                 src={GroupAvatar}
                 alt="Group Avatar"
@@ -102,11 +155,14 @@ const Hero = () => {
               <span className="text-start">
                 Trusted by 5,000+ users take full control of their Earnings
               </span>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Center */}
-          <div className="relative w-full max-w-60 md:w-1/4 md:max-w-[300px] -mx-[20%] md:-mx-[8%] z-30">
+          <motion.div
+            className="relative w-full max-w-60 md:w-1/4 md:max-w-[300px] -mx-[20%] md:-mx-[8%] z-30"
+            variants={imageVariants}
+          >
             <Image
               src={HeroCenter}
               alt="Center"
@@ -115,14 +171,20 @@ const Hero = () => {
               className="w-full h-auto block"
               priority
             />
-            <div className="absolute max-lg:w-full right-[52%] md:right-[23%] top-1/10 md:top-1/5 translate-x-full z-30 bg-white/50 backdrop-blur p-2 rounded-sm text-primary text-[0.4rem] md:text-[0.625rem] lg:text-xs lg:text-nowrap font-medium flex items-center gap-2">
+            <motion.div
+              className="absolute max-lg:w-full right-[52%] md:right-[23%] top-1/10 md:top-1/5 translate-x-full z-30 bg-white/50 backdrop-blur p-2 rounded-sm text-primary text-[0.4rem] md:text-[0.625rem] lg:text-xs lg:text-nowrap font-medium flex items-center gap-2"
+              variants={cardVariants}
+            >
               <Zap className="size-3 md:size-5 fill-primary" />
               <span>Experience lightning-fast transactions, every time.</span>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right */}
-          <div className="relative w-full md:w-1/4 max-w-60 md:max-w-[300px]">
+          <motion.div
+            className="relative w-full md:w-1/4 max-w-60 md:max-w-[300px]"
+            variants={imageVariants}
+          >
             <Image
               src={HeroRight}
               alt="Right"
@@ -130,13 +192,16 @@ const Hero = () => {
               height={800}
               className="w-full block"
             />
-            <div className="absolute right-[105%] md:right-[45%] max-lg:w-full top-1/4 translate-x-full z-30 bg-primary/60 backdrop-blur p-2 rounded-sm text-white text-[0.4rem] md:text-[0.625rem] lg:text-xs font-medium flex lg:text-nowrap items-center gap-2">
+            <motion.div
+              className="absolute right-[105%] md:right-[45%] max-lg:w-full top-1/4 translate-x-full z-30 bg-primary/60 backdrop-blur p-2 rounded-sm text-white text-[0.4rem] md:text-[0.625rem] lg:text-xs font-medium flex lg:text-nowrap items-center gap-2"
+              variants={cardVariants}
+            >
               <ShieldCheck className="size-3 md:size-5" />
               <span>Enjoy full peace of mind with 100% security</span>
-            </div>
-          </div>
-        </div>
-      </div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
+      </motion.div>
 
       <ComingSoon open={open} setOpen={setOpen} />
     </section>
