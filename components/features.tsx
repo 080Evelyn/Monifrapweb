@@ -22,8 +22,8 @@ const Features = () => {
             <Image
               src={Feature1}
               alt="feature"
-              width={500}
-              height={500}
+              width={800}
+              height={800}
               className="w-full"
             />
             <div className="p-4">
@@ -40,8 +40,8 @@ const Features = () => {
             <Image
               src={Feature2}
               alt="feature"
-              width={500}
-              height={500}
+              width={300}
+              height={300}
               className="w-full h-full"
             />
             <div className="p-4">
@@ -61,8 +61,8 @@ const Features = () => {
             <Image
               src={Feature3}
               alt="feature"
-              width={500}
-              height={500}
+              width={800}
+              height={800}
               className="w-full"
             />
             <div className="p-4">
@@ -80,8 +80,8 @@ const Features = () => {
             <Image
               src={Feature4}
               alt="feature"
-              width={500}
-              height={500}
+              width={800}
+              height={800}
               className="w-full"
             />
             <div className="p-4">
