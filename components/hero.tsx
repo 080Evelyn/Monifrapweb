@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Navbar from "./navbar";
 import { ShieldCheck, Zap } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, Variants } from "framer-motion";
 import ComingSoon from "./coming-soon";
 import {
@@ -19,49 +19,107 @@ const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.2 },
+    transition: { staggerChildren: 0.12 },
   },
 };
 const mainContainerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.3, delayChildren: 0.15 },
+    transition: { staggerChildren: 0.18, delayChildren: 0.06 },
   },
 };
 
 const fadeUpVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 18 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.52, ease: "easeOut" },
+  },
 };
 
 const imageVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.9 },
+  hidden: { opacity: 0, scale: 0.9, y: 30 },
   visible: {
     opacity: 1,
     scale: 1,
+    y: 0,
     transition: { duration: 0.7, ease: "easeOut" },
   },
 };
 
 const cardVariants: Variants = {
-  hidden: { opacity: 0, x: 40 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 30, rotate: -3 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    rotate: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
+const bgVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { duration: 0.45, ease: "easeOut" } },
 };
 
 const Hero = () => {
   const [open, setOpen] = useState(false);
 
+  const [bgAnimated, setBgAnimated] = useState(false);
+
+  useEffect(() => {
+    let fallbackTimer: ReturnType<typeof setTimeout> | null = null;
+
+    const waitForLoadAndFonts = async () => {
+      try {
+        const winLoad = new Promise<void>((res) => {
+          if (typeof window === "undefined") return res();
+          if (document.readyState === "complete") return res();
+          window.addEventListener("load", () => res(), { once: true });
+        });
+
+        const fontsReady =
+          document.fonts?.ready instanceof Promise
+            ? document.fonts.ready
+            : Promise.resolve();
+
+        await Promise.all([winLoad, fontsReady]);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        fallbackTimer = setTimeout(() => setBgAnimated(true), 90);
+      }
+    };
+
+    waitForLoadAndFonts();
+
+    return () => {
+      if (fallbackTimer) clearTimeout(fallbackTimer);
+    };
+  }, []);
+
   return (
-    <section className="bg-background relative overflow-x-hidden pt-1">
-      {/* Background gradients */}
-      <div className="absolute inset-0 lg:mt-1">
+    <section className="bg-background relative overflow-hidden overflow-x-hidden pt-1">
+      {/* Background gradients — animate this first */}
+      <motion.div
+        variants={bgVariants}
+        initial="hidden"
+        animate="visible"
+        className="absolute inset-0 lg:mt-1"
+        onAnimationComplete={() => {
+          setBgAnimated(true);
+        }}
+      >
         <div className="absolute md:rounded-l-[27px] left-0 bottom-0 w-full md:w-1/2 h-full custom-left-gradient" />
         <span className="absolute bottom-10 left-10 w-64 h-64 md:w-80 md:h-80 bg-[#153D8040] blur-3xl rounded-full" />
-      </div>
+      </motion.div>
+
       <div className="absolute inset-0">
         <div className="absolute md:rounded-b-[27px] left-1/2 transform -translate-x-1/2 bottom-0 hidden md:block rounded-full blur-2xl md:w-1/3 z-15 h-2/3 bg-gradient-to-t from-background to-transparent" />
       </div>
+
       <div className="absolute inset-0 max-md:hidden lg:mt-1">
         <div className="absolute md:rounded-r-[27px] right-0 bottom-0 w-1/2 h-full custom-right-gradient" />
         <span className="absolute bottom-10 right-10 w-64 h-64 md:w-80 md:h-80 bg-[#0fa3014f] blur-3xl rounded-full" />
@@ -124,10 +182,12 @@ const Hero = () => {
           </motion.div>
         </motion.div>
 
-        {/* Image mockups */}
+        {/* Image mockups — only animate in after background is done */}
         <motion.div
           className="relative z-20 w-full flex items-end justify-center mt-20 sm:mt-2 overflow-hidden"
           variants={containerVariants}
+          initial="hidden"
+          animate={bgAnimated ? "visible" : "hidden"}
         >
           {/* Left */}
           <motion.div
