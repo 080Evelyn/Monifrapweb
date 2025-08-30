@@ -22,8 +22,8 @@ const Standout = () => {
           <Image
             src={MonifrapMobile}
             alt="standout"
-            height={100}
-            width={100}
+            height={1000}
+            width={1000}
             className="w-[80%] md:w-full xl:w-[80%] max-md:mx-auto -mb-5"
           />
         </div>

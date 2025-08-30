@@ -64,11 +64,10 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-row flex-wrap gap-2 md:gap-4 items-center">
-            <span className="text-white hidden md:block">Social Media</span>
             {socialMediaLinks.map((social) => (
               <div
                 key={social.name}
-                className="p-2 border rounded-full border-white/15"
+                className="p-2 border rounded-full border-white/15 cursor-pointer hover:bg-white/5 hover:-translate-y-1 transition-all duration-300"
                 aria-label={social.label}
               >
                 <Image
@@ -84,11 +83,26 @@ const Footer = () => {
         </div>
       </div>
       <hr className="border-white/15 my-5" />
-      <div className="flex flex-wrap gap-5 items-center text-white max-md:justify-center">
-        <Link href="#home">Home</Link>
-        <Link href="#features">Features</Link>
-        <Link href="#faqs">FAQs</Link>
-        <Link href="#contact">Contact Us</Link>
+      <div className="flex flex-wrap gap-5 items-center text-muted max-md:justify-center">
+        {[
+          { name: "Home", path: "#home" },
+          { name: "Features", path: "#features" },
+          { name: "FAQs", path: "#faqs" },
+          { name: "Contact Us", path: "#contact" },
+        ].map((link) => (
+          <Link key={link.path} href={link.path} className="hover:text-primary">
+            {link.name}
+          </Link>
+        ))}
+      </div>
+      <hr className="border-background/15 my-5" />
+      <div className="flex flex-col flex-wrap gap-2 text-sm text-muted items-center max-md:justify-center">
+        <span>
+          &copy; {new Date().getFullYear()} Monifrap. All rights reserved.
+        </span>
+        <span className=" text-muted-foreground">
+          Powered by LYNOG TECH NIG
+        </span>
       </div>
     </section>
   );

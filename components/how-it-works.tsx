@@ -25,8 +25,8 @@ const HowItWorks = () => {
             <Image
               src={Step1}
               alt="Create an account"
-              width={100}
-              height={100}
+              width={800}
+              height={800}
               className="w-full"
             />
             <span className="inline-block mx-1 px-2 py-0.5 text-primary bg-primary/20 rounded-sm">
@@ -47,8 +47,8 @@ const HowItWorks = () => {
             <Image
               src={Step2}
               alt="Create an account"
-              width={100}
-              height={100}
+              width={800}
+              height={800}
               className="w-full"
             />
             <span className="inline-block mx-1 px-2 py-0.5 text-primary bg-primary/20 rounded-sm">
@@ -70,8 +70,8 @@ const HowItWorks = () => {
             <Image
               src={Step3}
               alt="Create an account"
-              width={100}
-              height={100}
+              width={800}
+              height={800}
               className="w-full"
             />
             <span className="inline-block mx-1 px-2 py-0.5 text-primary bg-primary/20 rounded-sm">
