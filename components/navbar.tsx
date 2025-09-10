@@ -132,7 +132,7 @@ const Navbar = () => {
             <SheetHeader>
               <SheetTitle className="sr-only">Nav sidebar</SheetTitle>
             </SheetHeader>
-            <div className="flex w-1/2 flex-col px-4 gap-4 text-xs font-medium">
+            <div className="flex w-1/2 flex-col px-4 gap-4 text-sm font-medium">
               <NavLinks />
             </div>
             <div className="px-4 mt-4">
