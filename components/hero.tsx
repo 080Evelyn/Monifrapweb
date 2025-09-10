@@ -19,102 +19,67 @@ const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.12 },
-  },
-};
-const mainContainerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.18, delayChildren: 0.06 },
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+    },
   },
 };
 
 const fadeUpVariants: Variants = {
-  hidden: { opacity: 0, y: 18 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.52, ease: "easeOut" },
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
   },
 };
 
 const imageVariants: Variants = {
-  hidden: { opacity: 0, scale: 0.9, y: 30 },
+  hidden: { opacity: 0, y: 40 },
   visible: {
     opacity: 1,
-    scale: 1,
     y: 0,
-    transition: { duration: 0.7, ease: "easeOut" },
+    transition: {
+      duration: 0.6,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
   },
 };
 
 const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 30, rotate: -3 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    rotate: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 0.46, 0.45, 0.94],
+    },
   },
-};
-
-const bgVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.45, ease: "easeOut" } },
 };
 
 const Hero = () => {
   const [open, setOpen] = useState(false);
-
   const [bgAnimated, setBgAnimated] = useState(false);
 
   useEffect(() => {
-    let fallbackTimer: ReturnType<typeof setTimeout> | null = null;
+    const timer = setTimeout(() => {
+      setBgAnimated(true);
+    }, 100);
 
-    const waitForLoadAndFonts = async () => {
-      try {
-        const winLoad = new Promise<void>((res) => {
-          if (typeof window === "undefined") return res();
-          if (document.readyState === "complete") return res();
-          window.addEventListener("load", () => res(), { once: true });
-        });
-
-        const fontsReady =
-          document.fonts?.ready instanceof Promise
-            ? document.fonts.ready
-            : Promise.resolve();
-
-        await Promise.all([winLoad, fontsReady]);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        fallbackTimer = setTimeout(() => setBgAnimated(true), 90);
-      }
-    };
-
-    waitForLoadAndFonts();
-
-    return () => {
-      if (fallbackTimer) clearTimeout(fallbackTimer);
-    };
+    return () => clearTimeout(timer);
   }, []);
 
   return (
-    <section className="bg-background relative overflow-hidden overflow-x-hidden pt-1">
-      {/* Background gradients — animate this first */}
-      <motion.div
-        variants={bgVariants}
-        initial="hidden"
-        animate="visible"
-        className="absolute inset-0 lg:mt-1"
-        onAnimationComplete={() => {
-          setBgAnimated(true);
-        }}
-      >
+    <section className="bg-background relative overflow-hidden pt-1">
+      <div className="absolute inset-0 lg:mt-1">
         <div className="absolute md:rounded-l-[27px] left-0 bottom-0 w-full md:w-1/2 h-full custom-left-gradient" />
         <span className="absolute bottom-10 left-10 w-64 h-64 md:w-80 md:h-80 bg-[#153D8040] blur-3xl rounded-full" />
-      </motion.div>
+      </div>
 
       <div className="absolute inset-0">
         <div className="absolute md:rounded-b-[27px] left-1/2 transform -translate-x-1/2 bottom-0 hidden md:block rounded-full blur-2xl md:w-1/3 z-15 h-2/3 bg-gradient-to-t from-background to-transparent" />
@@ -132,11 +97,11 @@ const Hero = () => {
         className="flex flex-col h-full px-3"
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
+        animate={bgAnimated ? "visible" : "hidden"}
       >
         <motion.div
-          className="flex flex-col  max-md:gap-4 items-center mt-25 sm:mt-22 md:mt-8 flex-grow"
-          variants={mainContainerVariants}
+          className="flex flex-col max-md:gap-4 items-center mt-25 sm:mt-22 md:mt-8 flex-grow"
+          variants={fadeUpVariants}
         >
           <motion.div
             className="flex flex-col items-center max-sm:gap-4 text-center w-full md:w-4/5 lg:max-w-2/3"
@@ -169,7 +134,7 @@ const Hero = () => {
             ].map((b, i) => (
               <div
                 key={i}
-                className="flex-1 flex items-center gap-3 bg-foreground py-2 px-3 rounded-md cursor-pointer"
+                className="flex-1 flex items-center gap-3 bg-foreground py-2 px-3 rounded-md cursor-pointer hover:opacity-90 transition-opacity"
                 onClick={() => setOpen(true)}
               >
                 <Image src={b.src} alt="" width={24} height={24} />
@@ -182,9 +147,9 @@ const Hero = () => {
           </motion.div>
         </motion.div>
 
-        {/* Image mockups — only animate in after background is done */}
+        {/* Image mockups */}
         <motion.div
-          className="relative z-20 w-full flex items-end justify-center mt-20 sm:mt-2 overflow-hidden"
+          className="relative z-20 w-full flex items-end justify-center mt-20 sm:mt-2"
           variants={containerVariants}
           initial="hidden"
           animate={bgAnimated ? "visible" : "hidden"}
@@ -200,6 +165,7 @@ const Hero = () => {
               width={500}
               height={800}
               className="w-full block"
+              priority
             />
             <motion.div
               className="absolute w-30 md:w-40 left-10 md:left-0 -top-5 -translate-x-1/3 z-30 bg-white/30 backdrop-blur-xs p-2 rounded-sm text-wrap text-[0.5rem] md:text-[0.625rem] lg:text-xs font-medium flex flex-col border border-[#edeefc] justify-center items-center md:gap-2"
@@ -251,6 +217,7 @@ const Hero = () => {
               width={500}
               height={800}
               className="w-full block"
+              priority
             />
             <motion.div
               className="absolute right-[105%] md:right-[45%] max-lg:w-full top-1/4 translate-x-full z-30 bg-primary/60 backdrop-blur p-2 rounded-sm text-white text-[0.4rem] md:text-[0.625rem] lg:text-xs font-medium flex lg:text-nowrap items-center gap-2"

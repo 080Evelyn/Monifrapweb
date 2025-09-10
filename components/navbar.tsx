@@ -113,8 +113,8 @@ const Navbar = () => {
       {/* Mobile */}
       <div
         className={cn(
-          "flex lg:hidden justify-between items-center fixed top-0  backdrop-blur-md md:-mx-2 py-2 px-6 md:px-8 w-full z-50 transition-colors duration-300",
-          isScrolled ? "shadow-sm mt-0" : "shadow-none pt-6"
+          "flex lg:hidden justify-between items-center  backdrop-blur-md md:-mx-2 py-2 px-6 md:px-8 w-full z-50 transition-colors duration-300",
+          isScrolled ? "shadow-sm mt-0 fixed top-0" : "shadow-none pt-6"
         )}
       >
         <Image
@@ -132,7 +132,7 @@ const Navbar = () => {
             <SheetHeader>
               <SheetTitle className="sr-only">Nav sidebar</SheetTitle>
             </SheetHeader>
-            <div className="flex w-1/2 flex-col px-4 gap-4 text-xs font-medium">
+            <div className="flex w-1/2 flex-col px-4 gap-4 text-sm font-medium">
               <NavLinks />
             </div>
             <div className="px-4 mt-4">
