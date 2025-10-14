@@ -13,8 +13,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { z } from "zod";
 import { InputGroup, InputGroupAddon, InputGroupInput } from "./ui/input-group";
-import { MailIcon, Send, User2 } from "lucide-react";
+import { Loader, MailIcon, Send, User2 } from "lucide-react";
 import { Textarea } from "./ui/textarea";
+import emailjs from "@emailjs/browser";
 
 interface WaitingListProp {
   open: boolean;
@@ -23,7 +24,7 @@ interface WaitingListProp {
 
 const waitlistSchema = z.object({
   name: z.string().min(2, "Name is required"),
-  email: z.string().email("Enter a valid email"),
+  email: z.email("Enter a valid email"),
   feedback: z.string().min(5, "Tell us a bit about what you think"),
 });
 
@@ -31,6 +32,7 @@ export type WaitlistFormValues = z.infer<typeof waitlistSchema>;
 
 const WaitingList = ({ open, setOpen }: WaitingListProp) => {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const form = useForm<WaitlistFormValues>({
     resolver: zodResolver(waitlistSchema),
@@ -41,14 +43,36 @@ const WaitingList = ({ open, setOpen }: WaitingListProp) => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = form;
 
   const onSubmit = async (data: WaitlistFormValues) => {
     try {
-      console.log("Submitted:", data);
-      setSubmitted(true);
-    } catch (err) {
-      console.error(err);
+      setLoading(true);
+
+      const templateParams = {
+        name: data.name,
+        email: data.email,
+        message: data.feedback,
+      };
+
+      const response = await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID as string,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY as string
+      );
+
+      if (response.status === 200) {
+        setSubmitted(true);
+        reset();
+      } else {
+        console.error("Email failed:", response);
+      }
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -58,7 +82,9 @@ const WaitingList = ({ open, setOpen }: WaitingListProp) => {
         {!submitted ? (
           <>
             <DialogHeader>
-              <DialogTitle>Join the Waitlist</DialogTitle>
+              <DialogTitle className="bg-gradient-to-tr from-primary/65 to-secondary text-transparent bg-clip-text">
+                Join the Waitlist
+              </DialogTitle>
               <DialogDescription>
                 Be among the first to experience it and tell us what you think
                 about Monifrap.
@@ -120,10 +146,15 @@ const WaitingList = ({ open, setOpen }: WaitingListProp) => {
 
               <Button
                 type="submit"
+                disabled={loading}
                 className="w-full bg-gradient-to-br from-primary/80 to-secondary/80"
               >
-                Submit
-                <Send className="size-4" />
+                {loading ? (
+                  <Loader className="size-4 animate-spin" />
+                ) : (
+                  "Submit"
+                )}
+                {!loading && <Send className="size-4 ml-1" />}
               </Button>
             </form>
 
@@ -140,7 +171,7 @@ const WaitingList = ({ open, setOpen }: WaitingListProp) => {
             className="flex flex-col items-center text-center gap-2 py-4"
           >
             <h4 className="text-lg font-semibold">
-              🎉 You&apos;re on the list!
+              🎉 Congratulations! You&apos;re on the list!
             </h4>
             <p className="text-sm text-muted-foreground">
               Thanks for joining early. We&apos;ll keep you posted as Monifrap

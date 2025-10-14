@@ -45,8 +45,8 @@ export default function Rating() {
                       src={block.icon}
                       alt="icon"
                       width={100}
-                      height={40}
-                      className="w-full"
+                      height={100}
+                      className="h-auto w-auto"
                     />
                   </div>
                 )}

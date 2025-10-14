@@ -24,7 +24,7 @@ import Twitter from "./icons/twitter.svg";
 import Facebook from "./icons/facebook.svg";
 import Instagram from "./icons/instagram.svg";
 import Linkedin from "./icons/linkedin.svg";
-import RatingAvatar from "./images/rating-avatar.svg";
+import RatingAvatar from "./images/rating-avatar.webp";
 import RatingStar from "./icons/star.svg";
 import Testimonial1 from "./images/testimonial-1.jpg";
 import Testimonial2 from "./images/testimonial-2.png";
