@@ -44,10 +44,9 @@ export default function Rating() {
                     <Image
                       src={block.icon}
                       alt="icon"
-                      width={36}
-                      height={36}
+                      width={100}
+                      height={40}
                       className="w-full"
-                      priority={index < 2}
                     />
                   </div>
                 )}
@@ -86,8 +85,8 @@ export default function Rating() {
                     <Image
                       src={block?.icon}
                       alt="icon"
-                      width={36}
-                      height={36}
+                      width={100}
+                      height={40}
                       className="w-auto h-auto"
                     />
                   ) : null}

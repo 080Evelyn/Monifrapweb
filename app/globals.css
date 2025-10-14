@@ -3,10 +3,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-.font-inter {
-  font-family: var(--font-inter), sans-serif;
-}
-
 .custom-left-gradient {
   background: linear-gradient(60deg, #153d8040 0%, transparent 75%);
 }

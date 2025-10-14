@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ShieldCheck, Zap } from "lucide-react";
+import { ArrowUpRight, ShieldCheck, Zap } from "lucide-react";
 import { useEffect, useState } from "react";
 import {
   motion,
@@ -9,16 +9,17 @@ import {
   useAnimation,
   useReducedMotion,
 } from "framer-motion";
-import ComingSoon from "./coming-soon";
+// import ComingSoon from "./coming-soon";
 import {
-  AppleIcon,
+  // AppleIcon,
   GroupAvatar,
   HeroCenter,
   HeroLeft,
   HeroRight,
-  Playstore,
+  // Playstore,
 } from "@/public/assets";
 import HeroBackground from "./hero-background";
+import WaitingList from "./waiting-list";
 
 const topVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
@@ -125,11 +126,11 @@ const Hero = () => {
           </motion.div>
 
           <motion.div
-            className="mt-3 md:mt-8 flex flex-wrap w-full max-w-70 md:max-w-xs gap-4 z-30"
+            className="mt-3 md:mt-8 flex flex-wrap justify-center w-full max-w-70 md:max-w-xs gap-4 z-30"
             variants={topVariants}
             custom={0.08}
           >
-            {[
+            {/* {[
               { src: AppleIcon, label: ["Download on the", "App Store"] },
               { src: Playstore, label: ["Get it on", "Google Play"] },
             ].map((b, i) => (
@@ -146,7 +147,16 @@ const Hero = () => {
                   <span className="text-xs md:text-sm">{b.label[1]}</span>
                 </div>
               </div>
-            ))}
+            ))} */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              className="mt-4 bg-gradient-to-br from-primary/65 to-secondary/85 cursor-pointer text-white px-5 py-2 rounded-md font-medium shadow-lg flex items-center gap-2 transition-all"
+              onClick={() => setOpen(true)}
+            >
+              Join Waitlist
+              <ArrowUpRight className="size-4" />
+            </motion.button>
           </motion.div>
         </motion.div>
 
@@ -171,8 +181,9 @@ const Hero = () => {
               <Image
                 src={GroupAvatar}
                 alt="Group Avatar"
-                width={100}
-                height={40}
+                width={400}
+                height={400}
+                className="h-auto w-auto"
               />
               <span className="text-start">
                 Trusted by 5,000+ users take full control of their Earnings
@@ -223,7 +234,8 @@ const Hero = () => {
         </motion.div>
       </motion.div>
 
-      <ComingSoon open={open} setOpen={setOpen} />
+      {/* <ComingSoon open={open} setOpen={setOpen} /> */}
+      <WaitingList open={open} setOpen={setOpen} />
     </section>
   );
 };

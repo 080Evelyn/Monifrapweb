@@ -10,7 +10,7 @@ import ArrowRight from "./icons/arrow-right.svg";
 import HeroLeft from "./images/mockup-left.webp";
 import HeroRight from "./images/mockup-right.webp";
 import HeroCenter from "./images/mockup-center.webp";
-import GroupAvatar from "./images/hero-avatar.svg";
+import GroupAvatar from "./images/hero-avatar.webp";
 import Step1 from "./images/step-1.webp";
 import Step2 from "./images/step-2.webp";
 import Step3 from "./images/step-3.webp";

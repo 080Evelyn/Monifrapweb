@@ -92,9 +92,9 @@ const Navbar = () => {
       {/* Desktop */}
       <div
         className={cn(
-          "hidden lg:flex justify-between items-center w-full p-6 transition-all duration-300",
+          "hidden lg:flex justify-between items-center w-full py-6 px-8 transition-all duration-300",
           isScrolled
-            ? "bg-white/30 backdrop-blur-md shadow-sm py-3 px-6"
+            ? "bg-white/30 backdrop-blur-md shadow-sm py-3 px-8"
             : "bg-transparent"
         )}
       >
@@ -133,7 +133,7 @@ const Navbar = () => {
           <SheetTrigger>
             <Menu className="size-8" />
           </SheetTrigger>
-          <SheetContent className="w-1/3 h-58 lg:h-[35dvh] rounded-lg mt-4 mr-4">
+          <SheetContent className="w-1/2 md:w-1/3 h-58 rounded-lg mt-4 mr-4">
             <SheetHeader>
               <SheetTitle className="sr-only">Nav sidebar</SheetTitle>
             </SheetHeader>
