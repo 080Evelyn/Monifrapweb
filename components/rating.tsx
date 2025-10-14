@@ -6,6 +6,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import { RatingAvatar, RatingStar } from "@/public/assets";
+import { motion } from "framer-motion";
 
 const blocks = [
   {
@@ -31,42 +32,50 @@ export default function Rating() {
   return (
     <section className="w-full px-2 py-10 lg:py-10">
       {/* Desktop */}
-      <div className="hidden md:flex items-center justify-between gap-8">
-        {blocks.map((block, index) => (
-          <div
-            key={block.id}
-            className="flex flex-1 items-center gap-8 min-w-0"
-          >
-            <div className="flex flex-col flex-1 min-w-0">
-              <div className="flex items-center gap-2 min-w-0">
-                {block.icon && (
-                  <div className="flex-shrink-0">
-                    <Image
-                      src={block.icon}
-                      alt="icon"
-                      width={100}
-                      height={100}
-                      className="h-auto w-auto"
-                    />
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ amount: 0.3, once: true }}
+        className="flex flex-1 items-center gap-8 min-w-0"
+      >
+        <div className="hidden md:flex items-center justify-between gap-8">
+          {blocks.map((block, index) => (
+            <div
+              key={block.id}
+              className="flex flex-1 items-center gap-8 min-w-0"
+            >
+              <div className="flex flex-col flex-1 min-w-0">
+                <div className="flex items-center gap-2 min-w-0">
+                  {block.icon && (
+                    <div className="flex-shrink-0">
+                      <Image
+                        src={block.icon}
+                        alt="icon"
+                        width={100}
+                        height={100}
+                        className="h-auto w-auto"
+                      />
+                    </div>
+                  )}
+                  <div
+                    className="font-medium text-2xl"
+                    style={{ fontFamily: "'Satoshi Variable', sans-serif" }}
+                  >
+                    {block.number}
                   </div>
-                )}
-                <div
-                  className="font-medium text-2xl"
-                  style={{ fontFamily: "'Satoshi Variable', sans-serif" }}
-                >
-                  {block.number}
                 </div>
+                <p className="text-muted-foreground text-wrap">{block.text}</p>{" "}
               </div>
-              <p className="text-muted-foreground text-wrap">{block.text}</p>{" "}
-            </div>
 
-            {/* Divider */}
-            {index < blocks.length - 1 && (
-              <div className="w-px h-16 bg-gradient-to-b from-transparent via-gray-400 to-transparent flex-shrink-0" />
-            )}
-          </div>
-        ))}
-      </div>
+              {/* Divider */}
+              {index < blocks.length - 1 && (
+                <div className="w-px h-16 bg-gradient-to-b from-transparent via-gray-400 to-transparent flex-shrink-0" />
+              )}
+            </div>
+          ))}
+        </div>
+      </motion.div>
 
       {/* Mobile */}
       <div className="md:hidden">
