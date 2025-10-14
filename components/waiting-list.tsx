@@ -20,9 +20,10 @@ interface WaitingListProp {
   open: boolean;
   setOpen: (open: boolean) => void;
 }
+
 const waitlistSchema = z.object({
   name: z.string().min(2, "Name is required"),
-  email: z.email("Enter a valid email"),
+  email: z.string().email("Enter a valid email"),
   feedback: z.string().min(5, "Tell us a bit about what you think"),
 });
 
@@ -35,6 +36,12 @@ const WaitingList = ({ open, setOpen }: WaitingListProp) => {
     resolver: zodResolver(waitlistSchema),
     defaultValues: { name: "", email: "", feedback: "" },
   });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = form;
 
   const onSubmit = async (data: WaitlistFormValues) => {
     try {
@@ -57,36 +64,59 @@ const WaitingList = ({ open, setOpen }: WaitingListProp) => {
                 about Monifrap.
               </DialogDescription>
             </DialogHeader>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="space-y-4 mt-4"
-            >
-              <InputGroup>
-                <InputGroupInput
-                  placeholder="Enter your Name"
-                  {...form.register("name")}
-                />
-                <InputGroupAddon>
-                  <User2 />
-                </InputGroupAddon>
-              </InputGroup>
-              <InputGroup>
-                <InputGroupInput
-                  type="email"
-                  placeholder="Enter your email"
-                  {...form.register("email")}
-                />
-                <InputGroupAddon>
-                  <MailIcon />
-                </InputGroupAddon>
-              </InputGroup>
 
-              <Textarea
-                placeholder="What feature are you most excited about or want to see in Monifrap?"
-                rows={4}
-                className="h-30"
-                {...form.register("feedback")}
-              />
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 mt-4">
+              {/* Name */}
+              <div>
+                <InputGroup>
+                  <InputGroupInput
+                    placeholder="Enter your Name"
+                    {...register("name")}
+                  />
+                  <InputGroupAddon>
+                    <User2 />
+                  </InputGroupAddon>
+                </InputGroup>
+                {errors.name && (
+                  <p className="text-xs text-destructive mt-1">
+                    {errors.name.message}
+                  </p>
+                )}
+              </div>
+
+              {/* Email */}
+              <div>
+                <InputGroup>
+                  <InputGroupInput
+                    type="email"
+                    placeholder="Enter your email"
+                    {...register("email")}
+                  />
+                  <InputGroupAddon>
+                    <MailIcon />
+                  </InputGroupAddon>
+                </InputGroup>
+                {errors.email && (
+                  <p className="text-xs text-destructive mt-1">
+                    {errors.email.message}
+                  </p>
+                )}
+              </div>
+
+              {/* Feedback */}
+              <div>
+                <Textarea
+                  placeholder="What feature are you most excited about or want to see in Monifrap?"
+                  rows={4}
+                  className="h-30"
+                  {...register("feedback")}
+                />
+                {errors.feedback && (
+                  <p className="text-xs text-destructive mt-1">
+                    {errors.feedback.message}
+                  </p>
+                )}
+              </div>
 
               <Button
                 type="submit"
