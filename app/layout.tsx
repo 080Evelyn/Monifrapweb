@@ -30,19 +30,12 @@ export const metadata: Metadata = {
     siteName: "Monifrap",
     images: [
       {
-        url: "/assets/monifrap.webp",
-        width: 1200,
-        height: 630,
+        url: "/assets/se_logo.svg",
+        width: 80,
+        height: 80,
         alt: "Monifrap - Manage Multiple Bank Accounts in One App",
       },
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Monifrap - Nigeria's All-in-One Banking Platform",
-    description:
-      "Manage multiple bank accounts, avoid failed payments & USSD limits with Nigeria's premier fintech solution.",
-    images: ["/assets/monifrap.webp"],
   },
   robots: "index, follow",
   authors: [{ name: "Monifrap Team" }],

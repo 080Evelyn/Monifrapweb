@@ -29,7 +29,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -42,7 +42,10 @@ const Navbar = () => {
         const isActive = (hash || "#home") === link.path;
 
         return (
-          <div key={link.label} className="relative group cursor-pointer">
+          <div
+            key={link.label}
+            className="relative group cursor-pointer hover:max-lg:scale-105 transition-all duration-300"
+          >
             <Link
               href={link.path}
               onClick={() => {
@@ -53,8 +56,8 @@ const Navbar = () => {
               {link.label}
               <span
                 className={cn(
-                  "hidden absolute left-0 bottom-[-2px] h-[3px] rounded-lg bg-primary transition-all duration-300 md:block",
-                  isActive ? "w-1/2 opacity-100" : "w-0 group-hover:w-1/2"
+                  "hidden absolute left-0 bottom-[-2px] h-[3px] rounded-lg bg-primary transition-all duration-300 lg:block",
+                  isActive ? "w-1/2 lg:opacity-100" : "w-0 group-hover:lg:w-1/2"
                 )}
               />
             </Link>
@@ -85,14 +88,14 @@ const Navbar = () => {
   );
 
   return (
-    <div id="home">
+    <div id="home" className="fixed top-0 left-0 right-0 w-full z-50">
       {/* Desktop */}
       <div
         className={cn(
-          "hidden lg:flex justify-between items-center w-full z-50 p-6 transition-colors duration-300",
+          "hidden lg:flex justify-between items-center w-full p-6 transition-all duration-300",
           isScrolled
-            ? "fixed w-full -mx-4 top-0 backdrop-blur-md shadow-sm px-10 py-2"
-            : "relative"
+            ? "bg-white/30 backdrop-blur-md shadow-sm py-3 px-6"
+            : "bg-transparent"
         )}
       >
         <Image
@@ -113,8 +116,10 @@ const Navbar = () => {
       {/* Mobile */}
       <div
         className={cn(
-          "flex lg:hidden justify-between items-center  backdrop-blur-md md:-mx-2 py-2 px-6 md:px-8 w-full z-50 transition-colors duration-300",
-          isScrolled ? "shadow-sm mt-0 fixed top-0" : "shadow-none pt-6"
+          "flex lg:hidden justify-between items-center py-3 px-6 md:px-8 w-full transition-all duration-300",
+          isScrolled
+            ? "bg-white/30 backdrop-blur-md shadow-sm"
+            : "bg-transparent pt-6"
         )}
       >
         <Image
@@ -128,7 +133,7 @@ const Navbar = () => {
           <SheetTrigger>
             <Menu className="size-8" />
           </SheetTrigger>
-          <SheetContent className="w-1/2 h-55 sm:h-[35dvh] rounded-lg mt-4 mr-4">
+          <SheetContent className="w-1/3 h-58 lg:h-[35dvh] rounded-lg mt-4 mr-4">
             <SheetHeader>
               <SheetTitle className="sr-only">Nav sidebar</SheetTitle>
             </SheetHeader>

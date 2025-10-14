@@ -8,9 +8,12 @@ import Rating from "@/components/rating";
 import Standout from "@/components/standout";
 import Testimonials from "@/components/testimonials";
 
+import Navbar from "@/components/navbar";
+
 const Home = () => {
   return (
     <div className="overflow-x-hidden bg-background">
+      <Navbar />
       <div className="md:mx-2 lg:mx-4">
         <Hero />
         <Rating />
