@@ -151,7 +151,7 @@ const Hero = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
-              className="mt-4 bg-gradient-to-br from-primary/65 to-secondary/85 cursor-pointer text-white px-5 py-2 rounded-md font-medium shadow-lg flex items-center gap-2 transition-all"
+              className="mt-4 bg-gradient-to-br from-primary/65 to-secondary/85 cursor-pointer text-white px-5 py-2.5 rounded-md font-medium shadow-lg flex items-center gap-2 transition-all"
               onClick={() => setOpen(true)}
             >
               Join Waitlist
