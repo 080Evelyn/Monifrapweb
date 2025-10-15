@@ -1,57 +1,25 @@
 "use client";
 
-import {
-  Facebook,
-  Instagram,
-  Linkedin,
-  MutedLogo,
-  Twitter,
-} from "@/public/assets";
+import { socialMediaLinks } from "@/constants";
+import { MutedLogo } from "@/public/assets";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
-  const socialMediaLinks = [
-    {
-      name: "twitter",
-      icon: Twitter,
-      label: "Twitter",
-      url: "https://www.x.com/monifrap",
-    },
-    {
-      name: "facebook",
-      icon: Facebook,
-      label: "Facebook",
-      url: "https://www.facebook.com/profile.php?id=61581955392245",
-    },
-    {
-      name: "instagram",
-      icon: Instagram,
-      label: "Instagram",
-      url: "https://www.instagram.com/monifrap",
-    },
-    {
-      name: "linkedin",
-      icon: Linkedin,
-      label: "LinkedIn",
-      url: "#",
-    },
-  ];
-
   return (
     <section className="bg-[#191818] px-5 md:px-14 lg:px-20 py-15">
-      <div className="grid grid-cols-5 md:grid-cols-5 gap-2">
-        <div className="col-span-2 md:col-span-3">
+      <div className="grid grid-cols-1 sm:grid-cols-5 gap-2">
+        <div className="col-span-1 sm:col-span-3">
           <Image
             src={MutedLogo}
             alt="logo"
             width={100}
             height={100}
-            className="w-full max-w-[33vw] md:max-w-[18.75rem]"
+            className="w-full max-w-1/2 sm:max-w-[33vw] md:max-w-[18.75rem]"
           />
         </div>
-        <div className="col-span-3 md:col-span-2 flex flex-col gap-2 md:gap-4">
+        <div className="col-span-1 sm:col-span-2 flex flex-col gap-2 max-sm:my-15 md:gap-4">
           <div className="flex flex-col gap-2">
             <div className="flex  text-white items-center gap-4">
               <div className="p-2 border rounded-full border-white/15">

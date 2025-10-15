@@ -8,7 +8,7 @@ import type { ReactNode } from "react";
 
 const Features = () => {
   const ref = useRef<HTMLElement | null>(null);
-  const inView = useInView(ref, { margin: "-18% 0px -18% 0px" });
+  const inView = useInView(ref, { margin: "-18% 0px -18% 0px", once: true });
   const reduceMotion = useReducedMotion();
 
   const container = {

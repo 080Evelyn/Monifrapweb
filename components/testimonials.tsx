@@ -1,56 +1,32 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
-import {
-  Testimonial1,
-  Testimonial2,
-  Testimonial3,
-  Testimonial4,
-} from "@/public/assets";
-
-const users = [
-  {
-    id: 1,
-    name: "Destiny Emmanuel",
-    role: "Travel Enthusiast",
-    avatar: Testimonial1,
-    testimonial:
-      "Monifrap made managing my money across two different banks so easy. I get real-time notifications, and I've never missed a payment since. It feels like all my banking is finally in one place.",
-  },
-  {
-    id: 2,
-    name: "Jane Doe",
-    role: "Freelance Designer",
-    avatar: Testimonial2,
-    testimonial:
-      "Monifrap gives me peace of mind. I can track every transaction and manage my business payments without stress. It’s a game changer.",
-  },
-  {
-    id: 3,
-    name: "Michael Smith",
-    role: "Small Business Owner",
-    avatar: Testimonial3,
-    testimonial:
-      "Switching to Monifrap saved me so much time. I love how everything is in one place and super easy to use.",
-  },
-  {
-    id: 4,
-    name: "Aisha Bello",
-    role: "Student",
-    avatar: Testimonial4,
-    testimonial:
-      "Managing my student budget is so much easier with Monifrap. The app keeps me in control without any hassle.",
-  },
-];
+import { motion, useInView } from "framer-motion";
+import { users } from "@/constants";
 
 const Testimonials = () => {
   const [selectedUser, setSelectedUser] = useState(users[0]);
 
+  const leftRef = useRef(null);
+  const rightRef = useRef(null);
+  const rolesRef = useRef(null);
+
+  const leftInView = useInView(leftRef, { once: true, margin: "-100px" });
+  const rightInView = useInView(rightRef, { once: true, margin: "-100px" });
+  const rolesInView = useInView(rolesRef, { once: true, margin: "-100px" });
+
   return (
     <section className="border-y py-20 px-5 md:px-12 lg:px-20 border-primary">
       <div className="flex w-full flex-col lg:flex-row items-start lg:items-center">
-        <div className="flex flex-col gap-4 items-start w-full lg:w-[52%]">
+        {/* LEFT SIDE */}
+        <motion.div
+          ref={leftRef}
+          initial={{ x: -100, opacity: 0 }}
+          animate={leftInView ? { x: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col gap-4 items-start w-full lg:w-[52%]"
+        >
           <div className="text-[10px] inline-block font-medium text-primary border border-primary rounded-full px-2 py-1">
             Testimonials
           </div>
@@ -61,9 +37,16 @@ const Testimonials = () => {
             Hear from real users who trust Monifrap every day. From secure
             payments to simple banking, their experiences say it all.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-col gap-4 w-full lg:w-[48%] px-0 lg:px-10 mt-8 lg:mt-0">
+        {/* RIGHT SIDE */}
+        <motion.div
+          ref={rightRef}
+          initial={{ x: 100, opacity: 0 }}
+          animate={rightInView ? { x: 0, opacity: 1 } : {}}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          className="flex flex-col gap-4 w-full lg:w-[48%] px-0 lg:px-10 mt-8 lg:mt-0"
+        >
           <div className="flex items-center gap-2">
             <Image
               src={selectedUser.avatar}
@@ -82,11 +65,17 @@ const Testimonials = () => {
           <p className="text-sm text-muted-foreground">
             {selectedUser.testimonial}
           </p>
-        </div>
+        </motion.div>
       </div>
 
-      {/* User list */}
-      <div className="w-full flex overflow-x-auto flex-nowrap gap-6 mt-10 md:grid md:grid-cols-4 md:overflow-visible">
+      {/* USER LIST */}
+      <motion.div
+        ref={rolesRef}
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={rolesInView ? { scale: 1, opacity: 1 } : {}}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
+        className="w-full flex overflow-x-auto flex-nowrap gap-6 mt-10 md:grid md:grid-cols-4 md:overflow-visible"
+      >
         {users.map((user) => (
           <button
             key={user.id}
@@ -110,7 +99,7 @@ const Testimonials = () => {
             </div>
           </button>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };
