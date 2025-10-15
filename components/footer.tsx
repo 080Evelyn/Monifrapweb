@@ -23,7 +23,7 @@ const Footer = () => {
       name: "facebook",
       icon: Facebook,
       label: "Facebook",
-      url: "#",
+      url: "https://www.facebook.com/profile.php?id=61581955392245",
     },
     {
       name: "instagram",

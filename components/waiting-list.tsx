@@ -147,7 +147,7 @@ const WaitingList = ({ open, setOpen }: WaitingListProp) => {
               <Button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-gradient-to-br from-primary/80 to-secondary/80"
+                className="w-full bg-gradient-to-br py-1 from-primary/80 to-secondary/80"
               >
                 {loading ? (
                   <Loader className="size-4 animate-spin" />
