@@ -7,7 +7,7 @@ import {
   MutedLogo,
   Twitter,
 } from "@/public/assets";
-import { MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -17,21 +17,25 @@ const Footer = () => {
       name: "twitter",
       icon: Twitter,
       label: "Twitter",
+      url: "https://www.x.com/monifrap",
     },
     {
       name: "facebook",
       icon: Facebook,
       label: "Facebook",
+      url: "#",
     },
     {
       name: "instagram",
       icon: Instagram,
       label: "Instagram",
+      url: "https://www.instagram.com/monifrap",
     },
     {
       name: "linkedin",
       icon: Linkedin,
       label: "LinkedIn",
+      url: "#",
     },
   ];
 
@@ -59,25 +63,34 @@ const Footer = () => {
               <div className="p-2 border rounded-full border-white/15">
                 <Phone size={20} className="size-5" />
               </div>
-              <span>+234 9012340567</span>
+              <Link href="tel:+2349033113048">+234 9033113048</Link>
+            </div>
+            <div className="flex text-white items-center gap-4">
+              <div className="p-2 border rounded-full border-white/15">
+                <Mail size={20} className="size-5" />
+              </div>
+              <Link href="mailto:support@monifrap.com.ng">
+                support@monifrap.com.ng
+              </Link>
             </div>
           </div>
 
           <div className="flex flex-row flex-wrap gap-2 md:gap-4 items-center">
             {socialMediaLinks.map((social) => (
-              <div
-                key={social.name}
-                className="p-2 border rounded-full border-white/15 cursor-pointer hover:bg-white/5 hover:-translate-y-1 transition-all duration-300"
-                aria-label={social.label}
-              >
-                <Image
-                  src={social.icon}
-                  alt={social.name}
-                  width={20}
-                  height={20}
-                  className="size-6.5"
-                />
-              </div>
+              <Link key={social.name} href={social.url} target="_blank">
+                <div
+                  className="p-2 border rounded-full border-white/15 cursor-pointer hover:bg-white/5 hover:-translate-y-1 transition-all duration-300"
+                  aria-label={social.label}
+                >
+                  <Image
+                    src={social.icon}
+                    alt={social.name}
+                    width={20}
+                    height={20}
+                    className="size-6.5"
+                  />
+                </div>
+              </Link>
             ))}
           </div>
         </div>

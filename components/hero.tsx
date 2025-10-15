@@ -105,12 +105,12 @@ const Hero = () => {
         <motion.div
           className="flex flex-col max-md:gap-4 items-center mt-25 sm:mt-22 md:mt-8 flex-grow"
           variants={topVariants}
-          custom={0}
+          custom={0.05}
         >
           <motion.div
             className="flex flex-col items-center max-sm:gap-4 text-center w-full md:w-4/5 lg:max-w-2/3"
             variants={topVariants}
-            custom={0.02}
+            custom={0.09}
           >
             <span className="text-[10px] font-medium text-primary border border-primary rounded-full px-2 py-1">
               Peak financial service
@@ -128,7 +128,7 @@ const Hero = () => {
           <motion.div
             className="mt-3 md:mt-8 flex flex-wrap justify-center w-full max-w-70 md:max-w-xs gap-4 z-30"
             variants={topVariants}
-            custom={0.08}
+            custom={0.1}
           >
             {/* {[
               { src: AppleIcon, label: ["Download on the", "App Store"] },
