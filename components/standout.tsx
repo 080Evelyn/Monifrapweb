@@ -16,7 +16,7 @@ const Standout = () => {
   ];
 
   const ref = useRef<HTMLElement | null>(null);
-  const inView = useInView(ref, { margin: "-10% 0px -35% 0px" });
+  const inView = useInView(ref, { margin: "-10% 0px -35% 0px", once: true });
   const reduceMotion = useReducedMotion();
 
   const container = {

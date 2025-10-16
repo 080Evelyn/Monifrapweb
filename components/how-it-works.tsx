@@ -43,7 +43,10 @@ const steps = [
 
 const HowItWorks = () => {
   const headerRef = useRef(null);
-  const headerInView = useInView(headerRef, { margin: "-10% 0px -25% 0px" });
+  const headerInView = useInView(headerRef, {
+    margin: "-10% 0px -25% 0px",
+    once: true,
+  });
 
   return (
     <section className="flex flex-col gap-3 w-full px-15 md:px-22 lg:px-35 mt-5 overflow-hidden">
@@ -114,6 +117,7 @@ function StepCard({ step }: { step: StepType }) {
   const cardRef = useRef(null);
   const cardInView = useInView(cardRef, {
     margin: "-10% 0px -25% 0px",
+    once: true,
   });
 
   return (

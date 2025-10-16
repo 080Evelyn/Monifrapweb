@@ -103,7 +103,7 @@ const Navbar = () => {
           alt="logo"
           width={40}
           height={40}
-          className="w-25 cursor-pointer"
+          className="w-25 xl:w-28 2xl:w-32 cursor-pointer"
         />
 
         <div className="flex gap-4 text-xs font-medium">
