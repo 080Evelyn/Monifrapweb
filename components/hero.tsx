@@ -64,6 +64,15 @@ const Hero = () => {
   const imagesControls = useAnimation();
   const cardControls = useAnimation();
 
+  // show the waiting list modal after 2 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setOpen(true);
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   // respect reduced motion preferences
   const reduceMotion = useReducedMotion();
 
@@ -116,12 +125,12 @@ const Hero = () => {
               Peak financial service
             </span>
             <h1 className="text-2xl mt-4 w-full md:text-4xl lg:text-[40px] font-medium">
-              Simplify Your Money. Your Money, Your Freedom.
-              <span className="text-primary"> One Smart Wallet.</span>
+              One App.
+              <span className="text-primary"> Every Bank.</span>
             </h1>
             <p className="text-sm mt-2 max-w-md md:max-w-lg">
-              Simplify how you save, spend, and plan – all from one intelligent
-              platform built for everyday people.
+              Monifrap securely connects all your bank accounts in one place —
+              powered by trusted open banking technology.
             </p>
           </motion.div>
 

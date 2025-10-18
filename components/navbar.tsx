@@ -88,7 +88,10 @@ const Navbar = () => {
   );
 
   return (
-    <div id="home" className="fixed top-0 left-0 right-0 w-full z-50">
+    <div
+      id="home"
+      className="fixed top-0 left-0 right-0 max-w-[100rem] mx-auto z-50"
+    >
       {/* Desktop */}
       <div
         className={cn(
