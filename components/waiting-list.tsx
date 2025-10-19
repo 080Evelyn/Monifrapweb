@@ -78,7 +78,7 @@ const WaitingList = ({ open, setOpen }: WaitingListProp) => {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="data-[state=open]:!zoom-in-0 data-[state=open]:duration-600 sm:max-w-md">
         {!submitted ? (
           <>
             <DialogHeader>
