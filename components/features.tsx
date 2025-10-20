@@ -77,8 +77,7 @@ const Features = () => {
           variants={item}
           className="text-3xl md:text-[40px] font-medium md:px-5"
         >
-          Not a bank — just a smarter way to manage all your banks, in one
-          secure app.
+          Explore the Features That Make Monifrap the Smartest Way to Bank
         </motion.span>
       </motion.div>
 
