@@ -73,8 +73,8 @@ const Standout = () => {
           </motion.span>
 
           <motion.p variants={item} className="text-sm max-w-xl">
-            Monifrap simplifies payments, supports local banks, and puts you in
-            full control — all in one secure app
+            Not a bank — just a smarter way to manage all your banks, in one
+            secure app.
           </motion.p>
 
           <motion.div
