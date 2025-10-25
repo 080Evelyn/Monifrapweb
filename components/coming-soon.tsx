@@ -15,7 +15,7 @@ interface ComingSoonProps {
 const ComingSoon = ({ open, setOpen }: ComingSoonProps) => {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="text-center flex flex-col items-center w-xs gap-4 py-8">
+      <DialogContent className="text-center flex flex-col items-center w-xs data-[state=open]:!zoom-in-0 data-[state=open]:duration-600 gap-4 py-8">
         <DialogHeader className="flex flex-col items-center gap-2">
           <Sparkles className="size-10 text-purple-600" />
           <DialogTitle className="mt-2 text-xl font-bold">
