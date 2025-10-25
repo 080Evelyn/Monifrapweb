@@ -7,7 +7,7 @@ import {
   Testimonial3,
   Testimonial4,
   Twitter,
-} from "@/public/assets";
+} from "@/public/";
 
 export const users = [
   {

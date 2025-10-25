@@ -1,6 +1,6 @@
 "use client";
 
-import { Feature1, Feature2, Feature3, Feature4 } from "@/public/assets";
+import { Feature1, Feature2, Feature3, Feature4 } from "@/public/";
 import Image from "next/image";
 import { motion, useInView, useReducedMotion } from "framer-motion";
 import { useRef } from "react";

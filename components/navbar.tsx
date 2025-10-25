@@ -9,11 +9,11 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "./ui/sheet";
-import { Menu } from "lucide-react";
+import { ArrowRight, Menu } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import ComingSoon from "./coming-soon";
-import { ArrowRight, logo } from "@/public/assets";
+import { logo } from "@/public/";
 
 const NAV_LINKS = [
   { label: "Home", path: "#home" },
@@ -70,18 +70,12 @@ const Navbar = () => {
   const DownloadButton = () => (
     <div className="inline-block">
       <div
-        className="flex whitespace-break-spaces items-center gap-2 bg-primary text-xs font-medium text-white py-1.5 ps-2 pe-1 cursor-pointer rounded-full"
+        className="group flex whitespace-break-spaces items-center gap-2 bg-primary text-xs font-medium text-white py-1.5 ps-2 pe-1 cursor-pointer rounded-full"
         onClick={() => setDialogOpen(true)}
       >
         <span>Download App</span>
-        <div className="relative bg-white rounded-full p-1.5">
-          <Image
-            src={ArrowRight}
-            alt="arrow-right"
-            width={20}
-            height={20}
-            className="size-[20px]"
-          />
+        <div className="relative group-hover:translate-x-0.75 duration-200 bg-white rounded-full p-1.5">
+          <ArrowRight className="size-5 text-foreground" />
         </div>
       </div>
     </div>

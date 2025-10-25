@@ -4,11 +4,7 @@ import { Search } from "lucide-react";
 import { useState } from "react";
 import Image from "next/image";
 
-import {
-  AdminAvatar,
-  AdminNotificationIcon,
-  SearchFilther,
-} from "@/public/assets";
+import { AdminAvatar, AdminNotificationIcon, SearchFilther } from "@/public/";
 import AdminNotification from "./Notification";
 
 const AdminHeader = () => {

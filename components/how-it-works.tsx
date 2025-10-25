@@ -1,6 +1,6 @@
 "use client";
 
-import { Step1, Step2, Step3 } from "@/public/assets";
+import { Step1, Step2, Step3 } from "@/public/";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import React, { useRef } from "react";

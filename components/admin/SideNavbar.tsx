@@ -6,7 +6,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { AdminLogo, logo } from "@/public/assets";
+import { AdminLogo, logo } from "@/public/";
 import {
   Aperture,
   Bell,

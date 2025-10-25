@@ -1,6 +1,6 @@
 "use client";
 
-import { MonifrapMobile } from "@/public/assets";
+import { MonifrapMobile } from "@/public/";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { motion, useInView, useReducedMotion } from "framer-motion";
