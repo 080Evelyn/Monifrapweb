@@ -1,7 +1,7 @@
 "use client";
 
 import { socialMediaLinks } from "@/constants";
-import { MutedLogo } from "@/public/assets";
+import { MutedLogo } from "@/public/";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";

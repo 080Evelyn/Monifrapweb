@@ -13,7 +13,7 @@ import { Menu } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import ComingSoon from "./coming-soon";
-import { ArrowRight, logo } from "@/public/assets";
+import { ArrowRight, logo } from "@/public/";
 
 const NAV_LINKS = [
   { label: "Home", path: "#home" },

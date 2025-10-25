@@ -17,7 +17,7 @@ import {
   HeroLeft,
   HeroRight,
   // Playstore,
-} from "@/public/assets";
+} from "@/public/";
 import HeroBackground from "./hero-background";
 import WaitingList from "./waiting-list";
 
