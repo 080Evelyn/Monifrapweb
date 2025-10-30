@@ -12,7 +12,7 @@ import { useScrollLock } from "@/hooks/ScrollLock";
 import { Skeleton } from "@/components/ui/skeleton";
 import { User2 } from "lucide-react";
 import Image from "next/image";
-import { AdminAvatar } from "@/public/assets";
+import { AdminAvatar } from "@/public/";
 import { useResponsivePopover } from "@/hooks/ViewportResize";
 
 interface NotificationPopoverProps {

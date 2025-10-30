@@ -17,7 +17,7 @@ import {
   HeroLeft,
   HeroRight,
   // Playstore,
-} from "@/public/assets";
+} from "@/public/";
 import HeroBackground from "./hero-background";
 import WaitingList from "./waiting-list";
 
@@ -64,7 +64,7 @@ const Hero = () => {
   const imagesControls = useAnimation();
   const cardControls = useAnimation();
 
-  // show the waiting list modal after 2 seconds
+  // show the waiting list modal after 2.5 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
       setOpen(true);
@@ -85,12 +85,12 @@ const Hero = () => {
       return;
     }
 
-    // sequence: top -> small delay -> images -> card (card has its own delay)
+    // sequence: top > small delay > images > card (card has its own delay)
     (async () => {
       // animate top; custom value passed if needed (0 delay)
       await topControls.start("visible");
 
-      // small intentional pause to create the sequencing you wanted (150-350ms feels good)
+      // small intentional pause to create the sequencing effect
       await new Promise((res) => setTimeout(res, 250));
 
       // animate images
