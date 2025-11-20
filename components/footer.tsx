@@ -85,7 +85,7 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} Monifrap. All rights reserved.
         </span>
         <span className=" text-muted-foreground">
-          Powered by LYNOG TECH NIG
+          Powered by LYNOG TECH NIG LTD
         </span>
       </div>
     </section>
